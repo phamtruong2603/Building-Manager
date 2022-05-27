@@ -1,0 +1,177 @@
+###
+POST http://localhost:2603/register
+Content-Type: application/json
+
+{
+    "phoneNumber": "1234567897",
+    "password": "thaithuytb",
+    "roomID": 4,
+    "isAdmin": false
+}
+
+###
+POST http://localhost:2603/login
+Content-Type: application/json
+
+{
+    "phoneNumber": "0852859919",
+    "password": "0852859919"
+}
+
+###
+GET http://localhost:2603/allUser
+Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTIsImlhdCI6MTY0ODQ1MTkwNSwiZXhwIjoxNjQ4NDY5OTA1fQ.qTvunwxe2wfo6NSpCRg3TwLlUz73T7Dii-zFft6iTvI
+
+###
+POST http://localhost:2603/updateUser
+Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTIsImlhdCI6MTY0ODQ1MTkwNSwiZXhwIjoxNjQ4NDY5OTA1fQ.qTvunwxe2wfo6NSpCRg3TwLlUz73T7Dii-zFft6iTvI
+Content-Type: application/json
+
+{
+    "fullName": "truongpham",
+    "cardNumber": 123456789,
+    "sex": "female",
+    "dateOfBirth": "2001-03-26T16:50:50.844Z"
+}
+
+###
+GET http://localhost:2603
+Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NCwiaWF0IjoxNjQ4MTEyMTE3LCJleHAiOjE2NDgxMTU3MTd9.DBr7s0gU0059hRxPa5fWQVMfuzKTDVoV4QabKiStl8M
+
+###
+POST http://localhost:2603/changePW
+Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NCwiaWF0IjoxNjQ4MDE4NzU2LCJleHAiOjE2NDgwMjIzNTZ9.-egA1ucecENWw_cjo5ZB1SvVdQ9Zz1peBuIiED7cuKw
+Content-Type: application/json
+
+{
+    "password": "1",
+    "newPassword": "2"
+}
+
+###
+GET http://localhost:2603/user
+Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTIsImlhdCI6MTY0ODQ1MTkwNSwiZXhwIjoxNjQ4NDY5OTA1fQ.qTvunwxe2wfo6NSpCRg3TwLlUz73T7Dii-zFft6iTvI
+
+###
+GET http://localhost:2603/detailUser
+Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTIsImlhdCI6MTY0ODQ1MTkwNSwiZXhwIjoxNjQ4NDY5OTA1fQ.qTvunwxe2wfo6NSpCRg3TwLlUz73T7Dii-zFft6iTvI
+
+###
+DELETE http://localhost:2603/deleteUser/14
+Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MywiaWF0IjoxNjUyMzc2NjcwLCJleHAiOjE2NTIzOTQ2NzB9.UfQr5Mr9NtWLM1LtFruuC5PcvldGQeDotKtY1s8dfEI
+Content-Type: application/json
+
+###
+GET http://localhost:2603/room/1
+Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MywiaWF0IjoxNjUyMjkwMTU3LCJleHAiOjE2NTIzMDgxNTd9.9J4K3x1QQR7xgI-VNfRCRsylWYMZG-1hCqbgFkFeFiE
+
+###
+GET http://localhost:2603/room
+Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MywiaWF0IjoxNjUxMjA1NjA1LCJleHAiOjE2NTEyMjM2MDV9.yirVpKuDENC4WkA5x_PiGFvArXxg4sejq04kNSt6qwA
+
+###
+
+POST http://localhost:2603/room
+Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNjQ3ODgwNjE2LCJleHAiOjE2NDc4ODQyMTZ9.srNIGMUMQ3moziQWpZHKyMHvW4vB0bK1paAU32yUvmY
+Content-Type: application/json
+
+{
+    "roomName": "1",
+    "rentPrice": 3500000,
+    "isEmpty": true,
+    "haveWifi": true
+}
+
+###
+PUT http://localhost:2603/room/3
+Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNjQ3ODgwNjE2LCJleHAiOjE2NDc4ODQyMTZ9.srNIGMUMQ3moziQWpZHKyMHvW4vB0bK1paAU32yUvmY
+Content-Type: application/json
+
+{
+    "roomName": "c3.3",
+    "rentPrice": 2000000,
+    "isEmpty": true,
+    "haveWifi": true
+}
+
+###
+DELETE  http://localhost:2603/room/
+Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNjQ3ODM3Njc3LCJleHAiOjE2NDc4NDEyNzd9.mwWOvqGEwzaO7bfgnFN5ilPQpqN1u_qlk1Mq2AEEoOE
+Content-Type: application/json
+
+###
+POST http://localhost:2603/bill/34
+Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MywiaWF0IjoxNjUzNjQxNjYwLCJleHAiOjE2NTM2NTk2NjB9.H4VSR0S0P7fRFqlFsvbbI4BKOE50a3AFmSJY5ySy1A0
+Content-Type: application/json
+
+{
+    "year": 2022,
+    "month": 4
+}
+###
+POST http://localhost:2603/bill/createBill/1
+Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MywiaWF0IjoxNjUzNjc2NDgzLCJleHAiOjE2NTM2OTQ0ODN9.cTjNnegp9c40rOfvFwl-z2AhdKTLIOuzlFapph5ora0
+Content-Type: application/json
+
+{
+    "electricNumber": 89,
+    "waterBlockNumber": 80,
+    "paid": false,
+    "sent": false
+}
+
+###
+POST http://localhost:2603/post/createPost
+Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MywiaWF0IjoxNjUyMDg3ODkxLCJleHAiOjE2NTIxMDU4OTF9.o_Yfm0Jn45f3zyuoq18WCUgdopBGymea_RdG7sZP3io
+Content-Type: application/json
+
+{
+    "title": "abc",
+    "content": "bcd"
+}
+
+###
+GET http://localhost:2603/post/getAllPost
+Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MywiaWF0IjoxNjUyMzE2MzI3LCJleHAiOjE2NTIzMzQzMjd9.E0kNsDUnIMemPzpUEMazv4PoJMCqBUCPs2-WpxokU2Q
+Content-Type: application/json
+
+###
+POST http://localhost:2603/like/45
+Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MywiaWF0IjoxNjUyOTYyODU5LCJleHAiOjE2NTI5ODA4NTl9.fAs7VtpFZSTHAooKBTvmajUqrDYRiDCOjttz3oJr78M
+Content-Type: application/json
+
+{
+    "postID": 41
+}
+
+###
+GET http://localhost:2603/like/getLike/45
+Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MywiaWF0IjoxNjUyOTYyODU5LCJleHAiOjE2NTI5ODA4NTl9.fAs7VtpFZSTHAooKBTvmajUqrDYRiDCOjttz3oJr78M
+Content-Type: application/json
+
+
+###
+DELETE http://localhost:2603/post/deletePost/27
+Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MywiaWF0IjoxNjUyMjYzMzgzLCJleHAiOjE2NTIyODEzODN9.OLQ5z30nCw1iCbLg9U1PfHw0VFK_O6MGn_a1jOHYPl8
+Content-Type: application/json
+
+###
+POST http://localhost:2603/comment/
+Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MywiaWF0IjoxNjUyMzE2MzI3LCJleHAiOjE2NTIzMzQzMjd9.E0kNsDUnIMemPzpUEMazv4PoJMCqBUCPs2-WpxokU2Q
+Content-Type: application/json
+
+{
+    "content": "abcd",
+    "postID": 37
+}
+
+###
+GET http://localhost:2603/comment/getComment/44
+Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MywiaWF0IjoxNjUyNjg1NTA1LCJleHAiOjE2NTI3MDM1MDV9.7iXZXQ7SLeAdZ81oQY8Fyg2SRM9u70U8BJ3i0m2AwQI
+Content-Type: application/json
+
+
+###
+DELETE http://localhost:2603/comment/1
+Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MywiaWF0IjoxNjUyMzE4NDM5LCJleHAiOjE2NTIzMzY0Mzl9.OvmVyD0q0mRXcuVJgj14z3Gma-4XQN7yONEOrpgwGkY
+Content-Type: application/json
