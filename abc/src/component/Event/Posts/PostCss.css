@@ -1,0 +1,94 @@
+.post {
+    max-width: 100%;
+    background-color: var(--background-color);
+    border-radius: 20px;
+    padding: 10px;
+    margin-bottom: 20px;
+    position: relative;
+    color: var(--color);
+}
+
+.postUser {
+    display: flex;
+    margin-bottom: 3px;
+}
+
+.postUser>.postAvarta {
+    width: 50px;
+    height: 50px;
+    overflow: hidden;
+    border-radius: 50%;
+}
+
+.postUser>.postAvarta img {
+    width: 100%;
+    height: 100%;
+}
+
+.postName {
+    padding-left: 10px;
+    line-height: 50px;
+}
+
+.deletePost {
+    cursor: pointer;
+    position: absolute;
+    right: 3%;
+    top: 20px;
+}
+
+.deletePost>div {
+    position: relative;
+}
+
+.hiden {
+    display: none;
+}
+
+.deletePost ul {
+    position: absolute;
+    width: 1050%;
+    left: -1000%;
+    padding: 20%;
+    margin: 0;
+}
+
+.deletePost ul li {
+    padding-left: 3%;
+}
+
+.post>.day {
+    margin: 0;
+    font-size: 13px;
+    margin-bottom: 5px;
+    padding-left: 10px;
+}
+
+.post .postImg {
+    display: flex;
+    justify-content: center;
+}
+
+.post .postImg img {
+    width: 90%;
+    height: auto;
+}
+
+.postLike {
+    margin-top: 2%;
+    border-top: 1px solid rgb(168, 164, 164);
+    display: flex;
+    justify-content: space-around;
+}
+
+.postLike>div {
+    text-align: center;
+    width: 40%;
+    padding: 10px 0;
+    border-radius: 8px;
+}
+
+.postLike>div:hover {
+    cursor: pointer;
+    background-color: rgb(182, 176, 176);
+}

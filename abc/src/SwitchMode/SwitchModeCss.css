@@ -1,0 +1,43 @@
+:root {
+  --background: white;
+  --background-color: rgb(217, 221, 224);
+  --background-comment: rgb(249, 249, 250);
+  --background-header: rgb(201, 204, 206);
+  --color: rgb(66, 65, 65);
+}
+
+.dark {
+  --background: rgb(8, 8, 8);
+  --background-color: rgb(31, 30, 30);
+  --background-comment: rgb(53, 51, 51);
+  --background-header: rgb(19, 18, 18);
+
+  --color: white;
+
+  background-color: var(--background);
+  color: var(--color);
+  position: relative;
+}
+
+body {
+  background-color: var(--background);
+}
+
+.light {
+  position: relative;
+}
+
+.switchMode {
+  position: fixed;
+  top: 0;
+  z-index: 2;
+}
+
+a {
+  color: var(--color);
+  text-decoration: none;
+}
+
+li {
+  list-style: none;
+}
