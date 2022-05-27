@@ -1,0 +1,9 @@
+.Bill {
+    padding-top: 4%;
+}
+.Bill button {
+    margin-left: 10%;
+}
+.hidenGetBill {
+    display: none;
+}

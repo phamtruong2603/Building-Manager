@@ -1,0 +1,23 @@
+.home {
+    display: flex;
+    justify-content: space-around;
+    padding-top: 15vh;
+}
+
+.headerEvent {
+    position: fixed;
+    width: 100%;
+    z-index: 1;
+}
+
+.HomePost {
+    width: 50%;
+}
+
+.sidebarHome {
+    width: 20%;
+}
+
+.createPostHome {
+    width: 20%;
+}

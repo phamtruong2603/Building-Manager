@@ -1,0 +1,25 @@
+.ChangePass {
+    display: grid;
+    padding: 1%;
+}
+.ChangePass label{
+    font-size: 18px;
+}
+.ChangePass input{
+    padding: 5px 1%;
+    width: 35%;
+    font-size: 18px;
+}
+.ChangePassBt {
+    margin-left: 1%;
+    font-size: 16px;
+    padding: 5px 25px;
+}
+.ChangePassPHiden {
+    display: none;
+}
+.ChangePassP {
+    display: block;
+    padding-left: 1%;
+    color: red;
+}

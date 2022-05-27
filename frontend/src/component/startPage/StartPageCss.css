@@ -1,0 +1,56 @@
+.startPage {
+    height: 100vh;
+    position: relative;
+    background-image: url('https://ichef.bbci.co.uk/news/640/cpsprodpb/120D2/production/_102783937_img_1272.jpg');
+    background-size: 100%;
+    color: rgb(48, 47, 47);
+}
+
+.startPageHeader ul {
+    list-style: none;
+    margin: 0;
+    display: flex;
+    justify-content: space-between;
+    background-color: rgba(183, 241, 239, 0.5);
+    border-bottom: 1px solid rgb(183, 241, 239);
+    padding: 15px 10%;
+}
+
+.startPageHeader ul .logo {
+    font-size: 30px;
+    font-weight: 900;
+}
+
+.startPageHeader ul .create {
+    min-width: 120px;
+    text-align: center;
+    line-height: 40px;
+    margin: 0 3px;
+    font-weight: 500;
+    border-radius: 7px;
+    text-decoration: none;
+    color: rgb(15, 15, 15);
+    background: rgb(255, 255, 255);
+    cursor: pointer;
+}
+
+.startPageHeader ul .create:hover {
+    background: rgb(231, 241, 241);
+    border: 1px solid rgb(102, 241, 237);
+}
+
+.startPageFooter {
+    height: 50%;
+}
+
+.startPageForm {
+    background: rgba(183, 241, 239, 0.5);
+    position: absolute;
+    top: 15%;
+    left: 15%;
+    border-radius: 5%;
+    height: 70%;
+    width: 30%;
+    border: 1px solid rgb(183, 241, 239);
+    z-index: 1;
+}
