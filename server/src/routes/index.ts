@@ -5,6 +5,7 @@ import routeBill from './bill.route';
 import routePost from './post.route';
 import likeRoute from './like.route';
 import commentRoute from './comment.route';
+import NotiRoute from './Notification.route';
 
 const route = (app: Application) => {
     app.use(function(req: Request, res: Response, next: NextFunction) {
@@ -12,6 +13,7 @@ const route = (app: Application) => {
         res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept');
         next();
     });
+    app.use('/notification', NotiRoute);
     app.use('/comment', commentRoute);
     app.use('/like', likeRoute);
     app.use('/post', routePost);

@@ -137,8 +137,6 @@ const userController = {
     },
     //PUT .../updateUser
     updateDetailUser: async (req: RequestType, res: ResponseType<User>) => {
-        console.log(req.file);
-        console.log(req.body);
         const avatar = req.protocol + '://' + req.get('host')+ '/' + req.file?.path;
         try {
             const user = await getRepository(User).findOne({ userID: req.userID });

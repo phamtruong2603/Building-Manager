@@ -1,4 +1,4 @@
-import { Column, CreateDateColumn, Entity, ManyToOne, PrimaryGeneratedColumn, UpdateDateColumn } from 'typeorm';
+import { Column, CreateDateColumn, Entity, JoinColumn, ManyToOne, PrimaryGeneratedColumn, UpdateDateColumn, JoinTable } from 'typeorm';
 import { Post } from './Post';
 import { User } from './User';
 
@@ -7,8 +7,13 @@ export class Notification {
     @PrimaryGeneratedColumn()
         notificationID!: number;
     
+    @Column({
+        nullable: true
+    })
+        seen : boolean;
+    
     @Column()
-        seen! : boolean; 
+        content! : string;
 
     @CreateDateColumn()
         createAt!: Date;
@@ -16,9 +21,19 @@ export class Notification {
     @UpdateDateColumn()
         updateAt!: Date;
  
-    @ManyToOne(() => Post, (post) => post.notifications)
-        post : Post;
+    @ManyToOne(() => Post, (post: Post) => post.notifications, {primary: true})
+        @JoinTable({
+            name: 'post'
+        })
+        @JoinColumn({name: 'postID', referencedColumnName: 'postID'})
+        post: Post;
     
-    @ManyToOne(() => User, (user) => user.notifications)
+    @ManyToOne(() => User, (user) => user.notifications, {primary: true})
+        @JoinTable({
+            name: 'user'
+        })
+        @JoinColumn({
+            name : 'userID'
+        })
         user : User;
 }

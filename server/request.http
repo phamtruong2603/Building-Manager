@@ -175,3 +175,27 @@ Content-Type: application/json
 DELETE http://localhost:2603/comment/1
 Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MywiaWF0IjoxNjUyMzE4NDM5LCJleHAiOjE2NTIzMzY0Mzl9.OvmVyD0q0mRXcuVJgj14z3Gma-4XQN7yONEOrpgwGkY
 Content-Type: application/json
+
+###
+POST http://localhost:2603/notification/
+Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MywiaWF0IjoxNjUzOTI2MjY5LCJleHAiOjE2NTM5NDQyNjl9.1RMy6OkwaWeU-A4I7_Lfb96GVkwW7GUTcIK14x7iSms
+Content-Type: application/json
+
+{
+    "content": "xxx like",  
+    "postID": 40
+}
+
+###
+PUT http://localhost:2603/notification/5
+Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MywiaWF0IjoxNjUzOTI2MjY5LCJleHAiOjE2NTM5NDQyNjl9.1RMy6OkwaWeU-A4I7_Lfb96GVkwW7GUTcIK14x7iSms
+Content-Type: application/json
+
+###
+POST http://localhost:2603/login
+Content-Type: application/json
+
+{
+    "phoneNumber": "0852859919",
+    "password": "0852859919"
+}
