@@ -4,19 +4,20 @@ import { createComment } from '../../../auth/likeAndComment';
 import { Providers } from '../../../contextAPI/Provider';
 import { getComment } from '../../../auth/likeAndComment';
 import { postingTime } from '../../../auth/post';
+import { postNoti } from '../../../auth/notification';
 
 const CommentPost = (props) => {
     const [newComment, setNewComment] = useState({ postID: props.postID })
     const [comment, setComment] = useState([])
     const { user } = useContext(Providers)
-
+    
     // lấy toàn bộ comment của bài post
     useEffect(() => {
         (async function () {
             let data = await getComment(props.postID)
             setComment(data)
         })()
-    }, [])
+    }, [props.postID])
 
     //lấy dữ liệu khi tạo mới comment
     const setPrams = (e) => {
@@ -39,6 +40,11 @@ const CommentPost = (props) => {
         ...comment
         ])
         createComment(newComment)
+        postNoti({
+            content: `${user.data.fullName} đã comment`,
+            postID: props.postID,
+            userID: props.userID
+        })
         setNewComment({ postID: props.postID })
     }
 

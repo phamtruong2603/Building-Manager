@@ -13,24 +13,36 @@ const notificationController = {
             const post = await getRepository(Post).findOne(postID);
 
             if (post && user) {
-                const newNoti = new Notification();
-                newNoti.content = content;
-                newNoti.post = post;
-                newNoti.user = user;
+                const noti = await getRepository(Notification).findOne({
+                    select : ['notificationID'],
+                    where: {
+                        user: user,
+                        post: post,
+                        content: content
+                    }
+                });
+                if (noti) {
+                    await getRepository(Notification).delete({ notificationID: +noti.notificationID });
+                } else {
+                    const newNoti = new Notification();
+                    newNoti.content = content;
+                    newNoti.post = post;
+                    newNoti.user = user;
 
-                const addNoti = await getRepository(Notification).create(newNoti);
-                const newNotiDB = await getRepository(Notification).save(addNoti);
+                    const addNoti = await getRepository(Notification).create(newNoti);
+                    const newNotiDB = await getRepository(Notification).save(addNoti);
 
-                if (!newNotiDB) {
-                    return res.status(400).json({
-                        success: false,
-                        message: 'Notification Fail !!!'
+                    if (!newNotiDB) {
+                        return res.status(400).json({
+                            success: false,
+                            message: 'Notification Fail !!!'
+                        });
+                    }
+                    return res.status(200).json({
+                        success: true,
+                        data: newNotiDB
                     });
                 }
-                return res.status(200).json({
-                    success: true,
-                    data: newNotiDB
-                });
             }
         } catch (error) {
             console.log(error);

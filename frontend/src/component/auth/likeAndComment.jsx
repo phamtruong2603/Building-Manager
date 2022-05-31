@@ -35,10 +35,7 @@ export const createComment = async (req) => {
     if (token) {
         axios.defaults.headers.common['authorization'] = `bearer ${token}`;
         try {
-            let data = await axios.post('/comment', req)
-            if (data) {
-                console.log(data)
-            }
+             await axios.post('/comment', req)
         } catch (error) {
             console.log(error)
         }

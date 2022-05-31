@@ -8,10 +8,12 @@ import { deletePost, postingTime } from '../../auth/post';
 import { BsThreeDotsVertical } from "react-icons/bs";
 import { ProviderPosts } from '../../contextAPI/ProviderPost';
 import { getLike } from '../../auth/likeAndComment';
+import { postNoti } from '../../auth/notification';
+import { Providers } from '../../contextAPI/Provider';
 
 const PostList = ({ props }) => {
     const { setPosts } = useContext(ProviderPosts);
-    // const { user } = useContext(Providers);
+    const { user } = useContext(Providers);
     const [hiden, setHiden] = useState(false)
     const [comment, setComment] = useState(false)
     const [likes, setLikes] = useState([])
@@ -22,13 +24,19 @@ const PostList = ({ props }) => {
 
     //like hoặc unlike bài post
     const likeCLick = async (postID) => {
+        postNoti({
+            content: `${user.data.fullName} đã like`,
+            postID,
+            userID: props.user.userID
+        })
+
         await Like({
             postID,
         });
+
         //lấy lại số like sau khi like hoặc unlike
         let like = await getLike(postID)
         setLikes(like)
-
     }
     const deletePostHinden = () => {
         setHiden(!hiden)
@@ -52,11 +60,7 @@ const PostList = ({ props }) => {
         (async function () {
             setLikes(await getLike(props.postID))
         })()
-    }, [])
-
-    // likes.map((like, index) => {
-    //     // console.log(like.user.userID === )
-    // })
+    }, [props.postID])
 
     return (
         <div className='post'>
@@ -89,7 +93,8 @@ const PostList = ({ props }) => {
             </div>
             <div className={!comment ? 'hiden' : ''}>
                 <CommentPost
-                    postID={props.postID}
+                    postID = {props.postID}
+                    userID = {props.user.userID}
                 />
             </div>
         </div>

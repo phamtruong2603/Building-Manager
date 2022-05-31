@@ -5,6 +5,7 @@ import ProviderUser from "./component/contextAPI/ProviderUser";
 import ProviderPost from "./component/contextAPI/ProviderPost";
 import ProviderRoom from "./component/contextAPI/ProviderRoom";
 import ProviderSwitchMode from "./component/contextAPI/ProviderSwitchMode";
+import ProviderSocket from "./component/contextAPI/ProviderSocket";
 import SwitchMode from "./SwitchMode/SwitchMode";
 
 function App() {
@@ -13,12 +14,14 @@ function App() {
       <ProviderUser>
         <ProviderPost>
           <ProviderRoom>
-            <ProviderSwitchMode>
+            <ProviderSocket>
+              <ProviderSwitchMode>
 
-              {/* Thay đổi giao diện sáng tối */}
-              <SwitchMode />
+                {/* Thay đổi giao diện sáng tối */}
+                <SwitchMode />
 
-            </ProviderSwitchMode>
+              </ProviderSwitchMode>
+            </ProviderSocket>
           </ProviderRoom>
         </ProviderPost>
       </ProviderUser>
