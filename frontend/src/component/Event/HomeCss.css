@@ -1,7 +1,6 @@
 .home {
     display: flex;
     justify-content: space-around;
-    padding-top: 15vh;
 }
 
 .headerEvent {
@@ -12,12 +11,21 @@
 
 .HomePost {
     width: 50%;
+    max-height: 100vh;
+    overflow: auto;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+}
+
+.HomePost::-webkit-scrollbar {
+    width: 0 !important;
+    display: none;
 }
 
 .sidebarHome {
-    width: 20%;
+    width: 22%;
 }
 
-.createPostHome {
-    width: 20%;
+.RightSides {
+    width: 25%;
 }

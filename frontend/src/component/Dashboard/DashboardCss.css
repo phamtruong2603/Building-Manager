@@ -1,19 +1,16 @@
 .Dashboard {
     display: flex;
-    justify-content: center;
-    padding: 5vh;
-    height: 77vh;
-}
-
-.SidebarDashboard {
-    padding: 2% 0 2% 0;
-    width: 18%;
-    background-color: var(--background-color);
+    justify-content: space-around;
 }
 
 .DashboardContent {
-    padding: 2%;
-    width: 65%;
-    min-height: 65vh;
+    display: flex;
+    align-items: center;
+    height: 100vh;
+    width: 70%;
     background-color: var(--background-color);
+}
+
+.db-RightSide {
+    width: 25%;
 }

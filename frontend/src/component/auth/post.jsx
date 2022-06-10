@@ -13,7 +13,6 @@ export const getAllPost = async (page) => {
 
             let data = await axios.post('/post/getAllPost', body);
             if (data) {
-                console.log(data);
                 return data.data.data
                 
             }

@@ -1,19 +1,18 @@
 .ChangePass {
     display: grid;
-    padding: 1%;
 }
 .ChangePass label{
     font-size: 18px;
 }
 .ChangePass input{
-    padding: 5px 1%;
-    width: 35%;
+    padding: 0.1rem;
+    width: 90%;
     font-size: 18px;
 }
 .ChangePassBt {
-    margin-left: 1%;
+    margin-top: 1rem;
     font-size: 16px;
-    padding: 5px 25px;
+    padding: 0.5rem 1rem;
 }
 .ChangePassPHiden {
     display: none;

@@ -19,8 +19,10 @@ export class Post {
     @Column()
         content!: string;
 
-    @Column()
-        postImg?: string;
+    @Column({
+        nullable: true
+    })
+        postImg: string;
 
     @CreateDateColumn()
         createAt!: Date;

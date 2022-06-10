@@ -10,7 +10,10 @@ const postController = {
     //create Post
     createPost: async (req: RequestType, res: ResponseType<Post>) => {
         const { content } = req.body;
-        const url = req.protocol + '://' + req.get('host')+ '/' + req.file?.path;
+        let url;
+        req.file?.path ? url =
+            req.protocol + '://' + req.get('host') + '/' + req.file?.path :
+            url = '';
         try {
             const user = await getRepository(User).findOne(req.userID);
             if (user) {

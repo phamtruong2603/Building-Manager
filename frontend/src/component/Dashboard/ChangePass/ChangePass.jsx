@@ -43,7 +43,7 @@ const ChangePass = () => {
                     <input type="password" id="NewPassword" name="newPassword" onChange={setPrams} />
                 </div>
                 <p className={!check ? 'ChangePassP' : 'ChangePassPHiden'}>Sai mật khẩu ban đầu</p>
-                <button className='ChangePassBt' type='submit'>save</button>
+                <button className='button ChangePassBt' type='submit'>save</button>
             </form>
         </div>
     )

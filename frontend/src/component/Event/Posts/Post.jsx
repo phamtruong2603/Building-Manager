@@ -1,6 +1,7 @@
 import React, { useContext } from 'react';
 import './PostCss.css';
 import { ProviderPosts } from '../../contextAPI/ProviderPost';
+import CreatePost from '../createPost/CreatePost';
 import PostList from './PostList';
 import { getAllPost } from '../../auth/post';
 
@@ -19,7 +20,8 @@ const Post = () => {
     
     return (
         <div className='mainPost'>
-            {posts.map((post, index) => {
+            <CreatePost />
+            {posts?.map((post, index) => {
                 return (
                     <div key={index}>
                         <PostList props={post} />

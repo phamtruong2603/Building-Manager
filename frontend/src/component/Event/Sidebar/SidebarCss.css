@@ -1,40 +1,98 @@
-.SidebarHome {
-    position: fixed;
-    width: 20%;
-    height: 85vh;
+.Profile {
+    margin: 2%;
+    position: relative;
     background-color: var(--background-color);
+    border-radius: 2rem;
+    overflow-x: clip;
 }
 
-.SidebarUser {
-    display: flex;
-    margin: 10px;
+.backgroundProfile {
+    height: 8rem;
+    overflow: hidden;
 }
 
-.SidebarUser>p {
+.backgroundProfile img {
+    width: 100%;
+    height: 100%;
+}
+
+.ProfileAvatar {
+    position: absolute;
+    right: 32%;
+    top: 6rem;
+
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    overflow: hidden;
+    margin-right: 10px;
+}
+
+.ProfileAvatar img {
+    width: 100%;
+    height: 100%;
+}
+
+.ProfileName {
+    margin-top: 55px;
+    text-align: center;
+}
+
+.ProfileName p {
     margin: 0;
-    line-height: 50px;
+    padding: 1%;
 }
 
-.SidebarUserAvarta {
+.ProfileText {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.ProfileText>div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.seperate {
+    border-left: 1px solid rgb(168, 164, 164);
+}
+
+.MyProfile {
+    text-align: center;
+    padding: 1rem 0;
+}
+
+.MyProfile span{
+    font-weight: 700;
+    color: rgb(84, 146, 146);
+    cursor: pointer;
+}
+
+.following {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.following div {
+    display: flex;
+}
+
+.followingAvatar {
     width: 50px;
     height: 50px;
     border-radius: 50%;
     overflow: hidden;
     margin-right: 10px;
 }
-.SidebarUserAvarta img {
+
+.followingAvatar img {
     width: 100%;
     height: 100%;
 }
-.SidebarUserRoom {
-    font-size: 40px;
-    text-align: center;
-    margin-right: 10px;
-}
 
-.SidebarPost {
-    margin: 0 0 20px 15px;
-    padding: 5px;
-    cursor: pointer;
-    width: 50%;
+.followingButton {
+    background-color: rgb(169, 221, 236);
+    padding: 10px 15px;
 }

@@ -3,7 +3,7 @@
     background-color: var(--background-color);
     border-radius: 20px;
     padding: 10px;
-    margin-bottom: 20px;
+    margin: 10px 0;
     position: relative;
     color: var(--color);
 }
@@ -82,7 +82,9 @@
 }
 
 .postLike>div {
-    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     width: 40%;
     padding: 10px 0;
     border-radius: 8px;

@@ -1,9 +1,13 @@
 :root {
   --background: white;
-  --background-color: rgb(217, 221, 224);
+  --background-color: rgb(245, 247, 248);
   --background-comment: rgb(249, 249, 250);
   --background-header: rgb(201, 204, 206);
   --color: rgb(66, 65, 65);
+  --photo : rgb(21, 241, 21);
+  --video : rgb(84, 137, 235);
+  --location : rgb(247, 93, 93);
+  --shedule : rgb(225, 241, 0);
 }
 
 .dark {

@@ -6,12 +6,11 @@ export const ProviderPosts = React.createContext()
 const ProviderPost = ({ children }) => {
 
     const [posts, setPosts] = useState([])
-    // const [page, setPage] = useState(0)
     const page = useRef(0)
 
     useEffect(() => {
         (async function () {
-            let data = await getAllPost(page)
+            let data = await getAllPost(useRef)
             setPosts(data)
         })()
     }, [])

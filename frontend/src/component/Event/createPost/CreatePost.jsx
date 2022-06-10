@@ -3,6 +3,12 @@ import './CreatePostCss.css';
 import { createPost } from '../../auth/post';
 import { ProviderPosts } from '../../contextAPI/ProviderPost';
 import { Providers } from '../../contextAPI/Provider';
+import { HiOutlinePhotograph } from "react-icons/hi";
+import { MdOutlineSlowMotionVideo } from "react-icons/md";
+import { IoLocationOutline } from "react-icons/io5";
+import { CgCalendarDates } from "react-icons/cg";
+import { ProviderUsers } from '../../contextAPI/ProviderUser';
+import { RiCloseFill } from "react-icons/ri";
 
 const CreatePost = () => {
     const [post, setPost] = useState({});
@@ -11,6 +17,12 @@ const CreatePost = () => {
     const { posts, setPosts } = useContext(ProviderPosts)
     const { user } = useContext(Providers)
     const phoneNumber = user?.data?.phoneNumber
+    const { dataUser } = useContext(ProviderUsers)
+
+    // biến avatar người dùng
+    let avatar = dataUser?.avatar
+        ? dataUser.avatar
+        : 'https://thuvienplus.com/themes/cynoebook/public/images/default-user-image.png'
 
     // lấy dữ liệu từ form tạo mới bài post
     const setPrams = (e) => {
@@ -56,47 +68,60 @@ const CreatePost = () => {
     }
 
     return (
-        <div className='createPostMain'>
-            <div className='formCreatePost'>
-                <div className='headerCreateFormPost'>
-                    <h2>Tạo bài viết</h2>
-                    <div className='headerCreateFormPostUser'>
-                        <div className='headerCreateFormPostUserAvarta'>
-                            <img src="https://thuvienplus.com/themes/cynoebook/public/images/default-user-image.png" alt="" />
-                        </div>
-                        <div className='headerCreateFormPostUser_' >
-                            <p>user</p>
-                            <select className='Private_'>
-                                <option>Riêng tư</option>
-                                <option>Công khai</option>
-                            </select>
-                        </div>
-                    </div>
+        <div className='formCreatePost'>
+            <div className='headerCreateFormPost'>
+                <div className='createPostAvatar'>
+                    <img src={avatar} alt="" />
                 </div>
-                <form method='POST' onSubmit={submit}>
-                    <div className='createContentPost'>
-                        <textarea
-                            type="text"
-                            name='content'
-                            value={post.content || ''}
-                            placeholder='Nội dung'
-                            onChange={setPrams}
-                        />
-                    </div>
-                    <div className='createImgPost'>
+            </div>
+            <div className='createContentPost'>
+                <input
+                    type="text"
+                    name='content'
+                    value={post.content || ''}
+                    placeholder='What is happening???'
+                    onChange={setPrams}
+                />
+                <div className='importFilePost'>
+                    <div className='createImgPost' style={{ color: "var(--photo)" }}>
                         <input
                             type="file"
                             id='browseImg'
                             onChange={(e) => uploader(e)}
                             name='postImg'
                         />
-                        <label htmlFor="browseImg">browse</label>
-                        {result && <img src={result} alt="" width='200px' height='200px' />}
+                        <label htmlFor="browseImg">
+                            <HiOutlinePhotograph />Photo
+                        </label>
+
                     </div>
-                    <div className='createBTPost'>
-                        <button>Đăng</button>
+                    <div style={{ color: "var(--video)" }}>
+                        <label htmlFor="">
+                            <MdOutlineSlowMotionVideo />video
+                        </label>
+
                     </div>
-                </form>
+                    <div style={{ color: "var(--location)" }}>
+                        <label htmlFor="">
+                            <IoLocationOutline />Location
+                        </label>
+                    </div>
+                    <div style={{ color: "var(--shedule)" }}>
+                        <label htmlFor="">
+                            <CgCalendarDates />Shedule
+                        </label>
+                    </div>
+                    <button className='button if-button' onClick={submit}>Share</button>
+                </div>
+                <div className='dataFile'>
+
+                    {result &&
+                        <div className='previewImg'>
+                            <RiCloseFill onClick={() => setResult('')} />
+                            <img src={result} alt="" />
+                        </div>
+                    }
+                </div>
             </div>
         </div>
     )

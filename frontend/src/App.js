@@ -14,14 +14,14 @@ function App() {
       <ProviderUser>
         <ProviderPost>
           <ProviderRoom>
-            <ProviderSocket>
-              <ProviderSwitchMode>
+            <ProviderSwitchMode>
+              <ProviderSocket>
 
                 {/* Thay đổi giao diện sáng tối */}
                 <SwitchMode />
 
-              </ProviderSwitchMode>
-            </ProviderSocket>
+              </ProviderSocket>
+            </ProviderSwitchMode>
           </ProviderRoom>
         </ProviderPost>
       </ProviderUser>
