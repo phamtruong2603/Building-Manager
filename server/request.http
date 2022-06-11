@@ -50,11 +50,11 @@ Content-Type: application/json
 
 ###
 GET http://localhost:2603/user
-Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTIsImlhdCI6MTY0ODQ1MTkwNSwiZXhwIjoxNjQ4NDY5OTA1fQ.qTvunwxe2wfo6NSpCRg3TwLlUz73T7Dii-zFft6iTvI
+Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6OCwiaWF0IjoxNjU0OTI5MDc3LCJleHAiOjE2NTQ5NDcwNzd9.-0lu7iMpSEn2oacFfE1yoyX_kWWFlAp8hYqf90BoU3k
 
 ###
 GET http://localhost:2603/detailUser
-Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTIsImlhdCI6MTY0ODQ1MTkwNSwiZXhwIjoxNjQ4NDY5OTA1fQ.qTvunwxe2wfo6NSpCRg3TwLlUz73T7Dii-zFft6iTvI
+Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6OCwiaWF0IjoxNjU0OTI5MDc3LCJleHAiOjE2NTQ5NDcwNzd9.-0lu7iMpSEn2oacFfE1yoyX_kWWFlAp8hYqf90BoU3k
 
 ###
 DELETE http://localhost:2603/deleteUser/14

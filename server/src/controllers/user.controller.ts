@@ -93,7 +93,6 @@ const userController = {
     getUser: async (req: RequestType, res: ResponseType<User>) => {
         try {
             const user = await getRepository(User).findOne({
-                select: ['userID', 'isAdmin', 'fullName', 'phoneNumber'],
                 where: {
                     userID: req.userID
                 },
@@ -121,6 +120,7 @@ const userController = {
                 .addSelect('DATE_FORMAT(dateOfBirth,\'%Y-%m-%d\')', 'dateOfBirth')
                 .where('user.userID = :id', { id: req.userID })
                 .getRawOne();
+                
             if (user) {
                 return res.status(200).json({
                     success: true,

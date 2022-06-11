@@ -65,7 +65,7 @@
 
 .MyProfile span{
     font-weight: 700;
-    color: rgb(84, 146, 146);
+    color: rgb(109, 184, 184);
     cursor: pointer;
 }
 
@@ -73,6 +73,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+    margin-bottom: 0.5rem;
 }
 
 .following div {
@@ -93,6 +94,7 @@
 }
 
 .followingButton {
-    background-color: rgb(169, 221, 236);
+    background-color: var(--button);
     padding: 10px 15px;
+    cursor: pointer;
 }

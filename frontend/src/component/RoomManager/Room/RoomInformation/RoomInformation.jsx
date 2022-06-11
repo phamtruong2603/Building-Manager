@@ -100,20 +100,6 @@ const RoomInformation = () => {
                     )
                 })}
             </div>
-
-            {/* <div className='Users'>
-                <p>Thông tin các dịch vụ</p>
-                <ul>
-                    <li>
-                        <input type="text" />
-                        <label htmlFor="">Tiền phòng</label>
-                    </li>
-                    <li></li>
-                    <li></li>
-                    <li></li>
-                    <li></li>
-                </ul>
-            </div> */}
         </div >
     )
 }

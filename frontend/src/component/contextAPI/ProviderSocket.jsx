@@ -17,8 +17,6 @@ const ProviderSocket = ({ children }) => {
     socket.on('notificationServerPush', (data) => {
         setSocketNoti(data)
     })
-
-    console.log(socketNoti)
     const data = { socket, socketNoti }
     return (
         <ProviderSockets.Provider value={data}>

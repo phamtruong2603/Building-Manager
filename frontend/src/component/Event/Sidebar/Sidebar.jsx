@@ -1,7 +1,6 @@
 import React, { useContext, useEffect, useState } from 'react';
 import './SidebarCss.css';
 import { Providers } from '../../contextAPI/Provider';
-import { ProviderUsers } from '../../contextAPI/ProviderUser';
 import { getRoomDetail } from '../../auth/room';
 import { useNavigate } from 'react-router-dom';
 
@@ -10,15 +9,13 @@ const Sidebar = () => {
     const roomID = user?.data?.room?.roomID
     const [data, setData] = useState({})
     const [room, setRoom] = useState({})
-    const { dataUser } = useContext(ProviderUsers);
     const navigate = useNavigate();
-
     useEffect(() => {
-        (async function () {
-            let response = await getRoomDetail(data?.room?.roomID)
+        roomID && (async function () {
+            let response = await getRoomDetail(roomID)
             setRoom(response)
         })()
-    }, [data]);
+    }, [roomID]);
 
     const dashboard = () => {
         navigate('/Dashboard')
@@ -30,8 +27,8 @@ const Sidebar = () => {
     }
 
     // biến avatar người dùng
-    let avatar = dataUser?.avatar
-        ? dataUser.avatar
+    let avatar = data?.avatar
+        ? data.avatar
         : 'https://thuvienplus.com/themes/cynoebook/public/images/default-user-image.png'
 
     useEffect(() => {
@@ -49,7 +46,7 @@ const Sidebar = () => {
                 </div>
                 <div className='ProfileName'>
                     <p>{data?.fullName ? data?.fullName : 'user'}</p>
-                    <p>Năm Sinh</p>
+                    <p>{data?.phoneNumber ? data?.phoneNumber : ''}</p>
                 </div>
                 <hr />
                 <div className='ProfileText'>
@@ -57,7 +54,7 @@ const Sidebar = () => {
                         style={{ cursor: 'pointer' }}
                     >
                         <span>Phòng</span>
-                        <span>{room?.data?.data.roomName}</span>
+                        <span>{data?.room?.roomName}</span>
                     </div>
                     <div className='seperate'></div>
                     <div>
@@ -72,28 +69,23 @@ const Sidebar = () => {
             </div>
             <div>
                 <h4>Who suggested following?</h4>
-                <div className='following'>
-                    <div>
-                        <div className='followingAvatar'>
-                            <img src="https://thuvienplus.com/themes/cynoebook/public/images/default-user-image.png" alt="" />
+                {room?.data?.data.users.map((user, index) => {
+                    let avatarImg = user.avatar ? user.avatar :
+                        'https://thuvienplus.com/themes/cynoebook/public/images/default-user-image.png'
+                    return (
+                        <div key={index} className='following'>
+                            <div>
+                                <div className='followingAvatar'>
+                                    <img src={avatarImg} alt="" />
+                                </div>
+                                <div className='followingName'>
+                                    <p>{user.fullName ? user.fullName : 'user'}</p>
+                                </div>
+                            </div>
+                            <button className='button followingButton'>Follow</button>
                         </div>
-                        <div className='followingName'>
-                            <p>{data?.fullName ? data?.fullName : 'user'}</p>
-                        </div>
-                    </div>
-                    <button className='button followingButton'>Follow</button>
-                </div>
-                <div className='following'>
-                    <div>
-                        <div className='followingAvatar'>
-                            <img src="https://thuvienplus.com/themes/cynoebook/public/images/default-user-image.png" alt="" />
-                        </div>
-                        <div className='followingName'>
-                            <p>{data?.fullName ? data?.fullName : 'user'}</p>
-                        </div>
-                    </div>
-                    <button className='button followingButton'>Follow</button>
-                </div>
+                    )
+                })}
             </div>
         </div>
     )

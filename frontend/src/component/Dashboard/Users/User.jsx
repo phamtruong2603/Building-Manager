@@ -1,10 +1,10 @@
 import React, { useContext } from 'react';
 import './Users.css';
-import { ProviderUsers } from '../../contextAPI/ProviderUser';
+import { Providers } from '../../contextAPI/Provider';
 import { useNavigate } from 'react-router-dom';
 
 const User = () => {
-    const { dataUser } = useContext(ProviderUsers)
+    const { dataUser } = useContext(Providers)
     const navigate = useNavigate()
     // biến avatar người dùng
     let avatar = dataUser?.avatar

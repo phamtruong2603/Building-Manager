@@ -56,12 +56,16 @@ const CommentPost = (props) => {
             </form>
             <div>
                 {comment.map((list, index) => {
+                    let avatar = list.user.avatar
+                    ? list.user.avatar
+                    : 'https://thuvienplus.com/themes/cynoebook/public/images/default-user-image.png'
+            
                     let day = postingTime(new Date(list.createAt));
                     return (
                         <div key={index}>
                             <div className='CommentUser'>
                                 <div className='CommentUserAvatar'>
-                                    <img src="https://thuvienplus.com/themes/cynoebook/public/images/default-user-image.png" alt="" />
+                                    <img src={avatar} alt="" />
                                 </div>
                                 <div className='CommentUserContent'>
                                     <p className='CommentUserContentPhone'>{list.user.phoneNumber}</p>

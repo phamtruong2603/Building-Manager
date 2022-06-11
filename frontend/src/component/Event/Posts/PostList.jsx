@@ -13,7 +13,6 @@ import { ProviderSockets } from '../../contextAPI/ProviderSocket'
 const PostList = ({ props }) => {
     const { setPosts } = useContext(ProviderPosts);
     const { socket } = useContext(ProviderSockets);
-
     const { user } = useContext(Providers);
     const [hiden, setHiden] = useState(false)
     const [comment, setComment] = useState(false)

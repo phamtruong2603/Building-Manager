@@ -1,6 +1,6 @@
 :root {
-  --background: white;
-  --background-color: rgb(245, 247, 248);
+  --background: #f3f3f3;
+  --background-color: rgb(223, 230, 235);
   --background-comment: rgb(249, 249, 250);
   --background-header: rgb(201, 204, 206);
   --color: rgb(66, 65, 65);
@@ -8,6 +8,7 @@
   --video : rgb(84, 137, 235);
   --location : rgb(247, 93, 93);
   --shedule : rgb(225, 241, 0);
+  --button: rgb(152, 247, 247);
 }
 
 .dark {
@@ -23,8 +24,18 @@
   position: relative;
 }
 
+.blur {
+  position: absolute;
+  width: 20rem;
+  height: 14rem;
+  border-radius: 50%;
+  background-color: #b9eafa;
+  filter: blur(72px);
+}
+
 body {
   background-color: var(--background);
+  overflow: hidden;
 }
 
 .light {

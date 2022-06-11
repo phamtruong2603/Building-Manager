@@ -24,6 +24,15 @@
 
 .sidebarHome {
     width: 22%;
+    max-height: 100vh;
+    overflow: auto;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+}
+
+.sidebarHome::-webkit-scrollbar {
+    width: 0 !important;
+    display: none;
 }
 
 .RightSides {

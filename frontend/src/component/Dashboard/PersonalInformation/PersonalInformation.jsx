@@ -1,15 +1,15 @@
 import React, { useContext, useEffect, useState } from 'react';
 import './ChangeInfor.css';
 import { updateDetailUser } from '../../auth/authReducer';
-import { ProviderUsers } from '../../contextAPI/ProviderUser';
 import ChangePass from '../ChangePass/ChangePass';
+import { Providers } from '../../contextAPI/Provider';
 
 const PersonalInformation = () => {
   const [file, setFile] = useState()
   const [updateUser, setUpdateUser] = useState({})
   const [result, setResult] = useState()
   const formData = new FormData();
-  const { dataUser } = useContext(ProviderUsers)
+  const { dataUser } = useContext(Providers)
 
   //lấy những dữ liệu có sẵn
   useEffect(() => {

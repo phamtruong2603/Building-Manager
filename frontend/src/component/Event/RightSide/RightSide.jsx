@@ -16,7 +16,7 @@ const RightSide = () => {
                 <span><Link to='/Home'><GrLanguage /></Link></span>
             </div>
             <div className='Advertisement'>
-                Trang quảng cáo
+                
             </div>
         </div>
     )

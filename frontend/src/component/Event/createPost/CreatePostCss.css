@@ -54,7 +54,7 @@
 
 .if-button {
     padding: 7px 20px;
-    background-color: rgb(133, 245, 245);
+    background-color: var(--button);
     cursor: pointer;
 }
 

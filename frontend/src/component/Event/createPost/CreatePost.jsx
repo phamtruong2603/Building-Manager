@@ -7,7 +7,6 @@ import { HiOutlinePhotograph } from "react-icons/hi";
 import { MdOutlineSlowMotionVideo } from "react-icons/md";
 import { IoLocationOutline } from "react-icons/io5";
 import { CgCalendarDates } from "react-icons/cg";
-import { ProviderUsers } from '../../contextAPI/ProviderUser';
 import { RiCloseFill } from "react-icons/ri";
 
 const CreatePost = () => {
@@ -17,11 +16,9 @@ const CreatePost = () => {
     const { posts, setPosts } = useContext(ProviderPosts)
     const { user } = useContext(Providers)
     const phoneNumber = user?.data?.phoneNumber
-    const { dataUser } = useContext(ProviderUsers)
-
     // biến avatar người dùng
-    let avatar = dataUser?.avatar
-        ? dataUser.avatar
+    let avatar = user?.data?.avatar
+        ? user.data.avatar
         : 'https://thuvienplus.com/themes/cynoebook/public/images/default-user-image.png'
 
     // lấy dữ liệu từ form tạo mới bài post
