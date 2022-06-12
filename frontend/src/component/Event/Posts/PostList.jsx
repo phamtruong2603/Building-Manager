@@ -1,20 +1,15 @@
 import React, { useContext, useEffect, useState } from 'react';
-// import { Providers } from '../../contextAPI/Provider';
 import { AiOutlineLike, AiOutlineComment } from "react-icons/ai";
 import CommentPost from './CommentPost/CommentPost';
 import { Like } from '../../auth/likeAndComment';
-import { deletePost, postingTime } from '../../auth/post';
-import { BsThreeDotsVertical } from "react-icons/bs";
-import { ProviderPosts } from '../../contextAPI/ProviderPost';
+import { postingTime } from '../../auth/post';
 import { getLike } from '../../auth/likeAndComment';
 import { Providers } from '../../contextAPI/Provider';
 import { ProviderSockets } from '../../contextAPI/ProviderSocket'
 
 const PostList = ({ props }) => {
-    const { setPosts } = useContext(ProviderPosts);
     const { socket } = useContext(ProviderSockets);
     const { user } = useContext(Providers);
-    const [hiden, setHiden] = useState(false)
     const [comment, setComment] = useState(false)
     const [likes, setLikes] = useState([])
     let day = postingTime(new Date(props.createAt));
@@ -38,21 +33,9 @@ const PostList = ({ props }) => {
         let like = await getLike(postID)
         setLikes(like)
     }
-    const deletePostHinden = () => {
-        setHiden(!hiden)
-    }
+
     const hidenComment = () => {
         setComment(!comment)
-    }
-
-    // xóa bài post
-    const deletePosts = (postID) => {
-        setPosts((posts) => {
-            return posts.filter(post => {
-                return post.postID !== postID
-            })
-        })
-        deletePost(postID)
     }
 
     //lấy số like của bài post khi load trang lần đầu
@@ -61,7 +44,10 @@ const PostList = ({ props }) => {
             setLikes(await getLike(props.postID))
         })()
     }, [props.postID])
-
+    const checkLike = likes && likes.find((like) => {
+        const checked = like.user.userID
+        return user?.data?.userID === checked
+    })
     return (
         <div className='post'>
             <div className='postUser'>
@@ -69,14 +55,6 @@ const PostList = ({ props }) => {
                     <img src={avatar} alt="" />
                 </div>
                 <div className='postName'>{props.user.phoneNumber}</div>
-            </div>
-            <div className='deletePost'>
-                <div>
-                    <BsThreeDotsVertical onClick={() => deletePostHinden()} />
-                    <ul className={!hiden ? 'hiden' : ''}>
-                        <li onClick={() => deletePosts(props.postID)}>xóa bài viết</li>
-                    </ul>
-                </div>
             </div>
             <p className='day'>{day}</p>
             <p className='postContent'>{props.content}</p>
@@ -88,8 +66,10 @@ const PostList = ({ props }) => {
             }
 
             <div className='postLike'>
-                <div to='' onClick={() => likeCLick(props.postID)}><AiOutlineLike />{likes.length}</div>
-                <div to='' onClick={() => hidenComment()}><AiOutlineComment />Comment</div>
+                <div className={checkLike ? 'checkLike' : ''} onClick={() => likeCLick(props.postID)}>
+                    <AiOutlineLike />{likes.length}
+                </div>
+                <div onClick={() => hidenComment()}><AiOutlineComment />Comment</div>
             </div>
             <div className={!comment ? 'hiden' : ''}>
                 <CommentPost

@@ -38,11 +38,12 @@ interface User {
 let usersOnSocket: User[] = [];
 
 const addUser = (userID: number, socketID: string) => {
-    const checkUser = usersOnSocket.find((ur) => {
-        return ur.userID === userID;
+    usersOnSocket = usersOnSocket.filter((ur) => {
+        // return userID && ur.userID !== userID;
+        return ur.userID !== userID;
     });
-    if (!checkUser)
-        usersOnSocket.push({ userID, socketID });
+
+    usersOnSocket.push({ userID, socketID });
 };
 
 const checkUser = (userID: number) => {
@@ -56,8 +57,6 @@ const disConnectUser = (socketID: string) => {
 io.on('connection', (socket) => {
     socket.on('message', (data) => {
         const user: User = checkUser(data.userID) || { userID: -1, socketID: '' };
-        console.log(user.socketID);
-        console.log(data);
         io.to(`${user.socketID}`).emit('pushMessage', data);
     });
 
@@ -67,14 +66,15 @@ io.on('connection', (socket) => {
     });
 
     socket.on('notificationClientPush', (data) => {
-        // const user: User = checkUser(data.userID) || { userID: -1, socketID: '' };
-        // console.log(user.socketID);
-        // console.log(data);
-        // io.to(user.socketID).emit('notificationServerPush', data);
+        console.log(data);
         io.to(checkUser(data.userID)?.socketID || 'nn').emit('notificationServerPush', data);
     });
 
-    socket.on('disConnectUser', () => {
+    socket.on('logOut', () => {
+        disConnectUser(socket.id);
+    });
+
+    socket.on('disconnect', () => {
         disConnectUser(socket.id);
     });
 });

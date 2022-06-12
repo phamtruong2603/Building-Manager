@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useContext, useEffect } from 'react';
 import './PostCss.css';
 import { ProviderPosts } from '../../contextAPI/ProviderPost';
 import CreatePost from '../createPost/CreatePost';
@@ -7,6 +7,12 @@ import { getAllPost } from '../../auth/post';
 
 const Post = () => {
     const { posts, page, setPosts } = useContext(ProviderPosts);
+
+    useEffect(() => {
+        (async function () { 
+            setPosts(await getAllPost(page))
+        })()
+    }, [])
 
     // xem thêm bài post. mỗi lần chỉ đc số bài quy định trước
     const view = async () => {

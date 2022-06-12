@@ -1,3 +1,29 @@
+:root {
+  --background: #f3f3f3;
+  --background-color: rgb(235, 233, 223);
+  --background-comment: rgb(249, 249, 250);
+  --background-header: rgb(201, 204, 206);
+  --color: rgb(66, 65, 65);
+  --photo: rgb(21, 241, 21);
+  --video: rgb(84, 137, 235);
+  --location: rgb(247, 93, 93);
+  --shedule: rgb(225, 241, 0);
+  --button: rgb(152, 247, 247);
+}
+
+.dark {
+  --background: rgb(8, 8, 8);
+  --background-color: rgb(31, 30, 30);
+  --background-comment: rgb(53, 51, 51);
+  --background-header: rgb(19, 18, 18);
+
+  --color: white;
+
+  background-color: var(--background);
+  color: var(--color);
+  position: relative;
+}
+
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
@@ -5,6 +31,9 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+
+  background-color: var(--background);
+  overflow: hidden;
 }
 
 * {
@@ -29,4 +58,32 @@ code {
   align-items: center;
   border: none;
   border-radius: 0.5rem;
+}
+
+.blur {
+  position: absolute;
+  width: 20rem;
+  height: 14rem;
+  border-radius: 50%;
+  background-color: #b9eafa;
+  filter: blur(72px);
+}
+
+.light {
+  position: relative;
+}
+
+.switchMode {
+  position: fixed;
+  top: 0;
+  z-index: 2;
+}
+
+a {
+  color: var(--color);
+  text-decoration: none;
+}
+
+li {
+  list-style: none;
 }

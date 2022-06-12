@@ -30,33 +30,6 @@
     line-height: 50px;
 }
 
-.deletePost {
-    cursor: pointer;
-    position: absolute;
-    right: 3%;
-    top: 20px;
-}
-
-.deletePost>div {
-    position: relative;
-}
-
-.hiden {
-    display: none;
-}
-
-.deletePost ul {
-    position: absolute;
-    width: 1050%;
-    left: -1000%;
-    padding: 20%;
-    margin: 0;
-}
-
-.deletePost ul li {
-    padding-left: 3%;
-}
-
 .post>.day {
     margin: 0;
     font-size: 13px;
@@ -92,5 +65,9 @@
 
 .postLike>div:hover {
     cursor: pointer;
-    background-color: rgb(182, 176, 176);
+    background-color: var(--button);
+}
+
+.checkLike {
+    background-color: var(--button);
 }

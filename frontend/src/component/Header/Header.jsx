@@ -4,6 +4,7 @@ import './HeaderCss.css';
 import { Providers } from '../contextAPI/Provider';
 import { IoNotifications } from "react-icons/io5";
 import { ProviderSwitchModes } from '../contextAPI/ProviderSwitchMode';
+import { socket } from '../contextAPI/ProviderSocket';
 
 const Header = () => {
     const { them, setThem } = useContext(ProviderSwitchModes);
@@ -11,6 +12,7 @@ const Header = () => {
     const { user, dispatch } = useContext(Providers);
     const roomID = user?.data?.room?.roomID
     const navigate = useNavigate();
+    console.log(user)
 
     const SwitchMode = () => {
         setThem(them === 'light' ? 'dark' : 'light')
@@ -19,6 +21,7 @@ const Header = () => {
 
     const LogOut = () => {
         localStorage.removeItem('token');
+        socket.emit('logOut', '')
         dispatch({
             type: 'login',
             payload: {},

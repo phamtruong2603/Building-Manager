@@ -1,10 +1,18 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import './HomeCss.css';
 import Sidebar from './Sidebar/Sidebar';
 import Post from './Posts/Post';
 import RightSide from './RightSide/RightSide';
+import { Providers } from '../contextAPI/Provider';
+import { socket } from '../contextAPI/ProviderSocket';
+import { useEffect } from 'react';
+
 
 const Home = () => {
+  const { user } = useContext(Providers);
+  useEffect(() => {
+    socket.emit('newConnectUser', user?.data?.userID);
+  }, [user])
 
   return (
     <div>
