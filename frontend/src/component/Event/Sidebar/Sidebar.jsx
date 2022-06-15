@@ -16,20 +16,14 @@ const Sidebar = () => {
             setRoom(response)
         })()
     }, [roomID]);
-
     const dashboard = () => {
         navigate('/Dashboard')
     }
 
     const Room = () => {
-        let x = user?.data?.isAdmin ? '/Room' : `/Room/${roomID}`
-        navigate(x)
+        let route = user?.data?.isAdmin ? '/Room' : `/Room/${roomID}`
+        navigate(route)
     }
-
-    // biến avatar người dùng
-    let avatar = data?.avatar
-        ? data.avatar
-        : 'https://thuvienplus.com/themes/cynoebook/public/images/default-user-image.png'
 
     useEffect(() => {
         setData(user.data)
@@ -42,7 +36,12 @@ const Sidebar = () => {
                     <img src="https://anhdep123.com/wp-content/uploads/2020/05/h%C3%ACnh-%E1%BA%A3nh-phong-c%E1%BA%A3nh-%C4%91%E1%BA%B9p.jpg" alt="" />
                 </div>
                 <div className='ProfileAvatar'>
-                    <img src={avatar} alt="" />
+                    <img
+                        src={data?.avatar
+                            ? data.avatar
+                            : 'https://thuvienplus.com/themes/cynoebook/public/images/default-user-image.png'}
+                        alt=""
+                    />
                 </div>
                 <div className='ProfileName'>
                     <p>{data?.fullName ? data?.fullName : 'user'}</p>

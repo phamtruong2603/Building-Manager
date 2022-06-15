@@ -1,0 +1,67 @@
+.RightSide {
+    display: flex;
+    flex-direction: column;
+    z-index: 2;
+}
+
+.rs-Icon {
+    display: flex;
+    justify-content: space-evenly;
+    font-size: 25px;
+    margin-top: 1.5rem;
+}
+
+.rs-Icon span {
+    cursor: pointer;
+}
+
+.rs-notification {
+    position: relative;
+}
+
+.nt-count {
+    background-color: red;
+    width: 13px;
+    height: 13px;
+    border-radius: 50%;
+    display: flex;
+    position: absolute;
+    top: 0px;
+    right: 0px;
+}
+
+.showNoti,
+.showSetting {
+    margin-top: 10px;
+    background-color: var(--background-color);
+    padding: 0.5rem;
+    position: relative;
+    border-radius: 15px;
+}
+
+.showNoti::before {
+    content: '';
+    width: 20px;
+    height: 20px;
+    background-color: var(--background-color);
+    position: absolute;
+    top: -10px;
+    right: 36%;
+    transform: rotate(45deg);
+}
+
+.showSetting::before {
+    content: '';
+    width: 20px;
+    height: 20px;
+    background-color: var(--background-color);
+    position: absolute;
+    top: -10px;
+    right: 15%;
+    transform: rotate(45deg);
+}
+
+.hiddenNoti,
+.hiddenSeting {
+    display: none;
+}

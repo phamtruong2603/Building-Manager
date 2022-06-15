@@ -9,6 +9,7 @@
   --location: rgb(247, 93, 93);
   --shedule: rgb(225, 241, 0);
   --button: rgb(152, 247, 247);
+  --notification: rgb(192, 228, 228);
 }
 
 .dark {
@@ -65,8 +66,9 @@ code {
   width: 20rem;
   height: 14rem;
   border-radius: 50%;
-  background-color: #b9eafa;
+  background-color: #a6e0f3;
   filter: blur(72px);
+  z-index: -1;
 }
 
 .light {

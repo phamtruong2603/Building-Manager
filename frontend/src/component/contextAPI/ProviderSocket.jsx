@@ -11,9 +11,9 @@ const ProviderSocket = ({ children }) => {
     useEffect(() => {
         socket.on('notificationServerPush', (data) => {
             setSocketNoti(data)
+            postNoti(data)
         })
     }, [])
-    console.log(socketNoti)
     const data = { socket, socketNoti }
     return (
         <ProviderSockets.Provider value={data}>

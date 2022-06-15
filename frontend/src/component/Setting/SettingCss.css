@@ -1,0 +1,35 @@
+.setting ul {
+    margin: 0;
+    padding: 0;
+}
+
+.setting ul li {
+    margin: 0.5rem;
+    padding: 0.5rem;
+    border-radius: 10px;
+    font-size: 1.1rem;
+    display: flex;
+    justify-content: space-between;
+}
+
+.setting ul li:last-child {
+    display: flex;
+    justify-content: center;
+    background-color: var(--button);
+}
+
+.setting ul li:last-child:hover {
+    background-color: var(--button);
+    cursor: pointer;
+}
+
+.setting ul li:hover {
+    background-color: var(--notification);
+    cursor: pointer;
+}
+
+.setting ul li span {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

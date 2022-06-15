@@ -6,3 +6,9 @@
     font-weight: 600;
     background-color: var(--background);
 }
+
+.SbR-bt {
+    background-color: var(--button);
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+}

@@ -4,7 +4,7 @@ import User from './Users/User';
 import PersonalInformation from './PersonalInformation/PersonalInformation';
 import { Routes, Route } from "react-router-dom";
 import ChangePass from './ChangePass/ChangePass';
-import RightSide from '../Event/RightSide/RightSide';
+import RightSide from '../RightSide/RightSide';
 
 const Dashboard = () => {
 

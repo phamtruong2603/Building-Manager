@@ -195,3 +195,8 @@ Content-Type: application/json
 GET http://localhost:2603/notification/
 Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MywiaWF0IjoxNjUzOTI2MjY5LCJleHAiOjE2NTM5NDQyNjl9.1RMy6OkwaWeU-A4I7_Lfb96GVkwW7GUTcIK14x7iSms
 Content-Type: application/json
+
+###
+PUT http://localhost:2603/notification/10
+Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MywiaWF0IjoxNjU1MjE4OTg3LCJleHAiOjE2NTUyMzY5ODd9.PooYx5bau4dgvcVRGKLSyGJr7k_TW-7CnGGKj7gCwPc
+Content-Type: application/json

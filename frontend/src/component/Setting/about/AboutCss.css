@@ -1,0 +1,7 @@
+.About {
+    display: flex;
+    justify-content: space-around;
+}
+.contentAbout {
+    width: 70%;
+}

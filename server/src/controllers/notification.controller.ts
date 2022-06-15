@@ -7,7 +7,7 @@ import { Post } from '../entities/Post';
 
 const notificationController = {
     postNoti: async (req: RequestType, res: ResponseType<Notification>) => {
-        const { content, postID, userID } = req.body;
+        const { interactiveUser, interactive, postID, userID } = req.body;
         try {
             const user = await getRepository(User).findOne(userID);
             const post = await getRepository(Post).findOne(postID);
@@ -18,14 +18,16 @@ const notificationController = {
                     where: {
                         user: user,
                         post: post,
-                        content: content
+                        interactive: interactive,
+                        interactiveUser: interactiveUser
                     }
                 });
                 if (noti) {
                     await getRepository(Notification).delete({ notificationID: +noti.notificationID });
                 } else {
                     const newNoti = new Notification();
-                    newNoti.content = content;
+                    newNoti.interactive = interactive;
+                    newNoti.interactiveUser = interactiveUser;
                     newNoti.post = post;
                     newNoti.user = user;
 
@@ -49,7 +51,6 @@ const notificationController = {
         }
     },
     updateNoti: async (req: RequestType, res: ResponseType<Notification>) => {
-        console.log(+req.params.notiID);
         try {
             const noti = await getRepository(Notification).findOne({
                 where: {
@@ -57,7 +58,6 @@ const notificationController = {
                 },
                 relations: ['user', 'post']
             });
-            console.log(noti);
             if (noti) {
                 const detailNoti: Notification = { ...noti, seen: true };
                 const newNotiDB = await getRepository(Notification).save(detailNoti);

@@ -16,7 +16,7 @@ const SideBarRoom = () => {
             {user?.data?.isAdmin ?
                 <div>
                     <div>
-                        <button onClick={click}>Thêm Phòng</button>
+                        <button className='button SbR-bt' onClick={click}>Thêm Phòng</button>
                     </div>
                     <div>
                         <AdminRoom />

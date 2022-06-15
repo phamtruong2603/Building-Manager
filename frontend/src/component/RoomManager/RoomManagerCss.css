@@ -1,17 +1,17 @@
 .RoomManager {
-    padding: 3vh 0 3vh 0;
-    height: 81vh;
     display: flex;
-    justify-content: space-evenly;
+    justify-content: space-around;
 }
 
-.SidebarRoom {
-    width: 20%;
-    background-color: var(--background-color);
+.noneRoom {
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .RoomContent {
     width: 70%;
+    height: 100vh;
     background-color: var(--background-color);
     overflow: auto;
     scrollbar-width: none;
@@ -21,4 +21,13 @@
 .RoomContent::-webkit-scrollbar {
     width: 0 !important;
     display: none;
+}
+
+.rm-rs {
+    position: absolute;
+    width: 25%;
+}
+
+.sidebarRoom {
+    margin-top: 5rem;
 }

@@ -1,8 +1,8 @@
 import React, { useContext, useEffect, useState } from 'react';
 import './AboutCss.css';
-import Header from '../Header/Header';
-import { ProviderSockets } from '../contextAPI/ProviderSocket';
-import { Providers } from '../contextAPI/Provider';
+import { ProviderSockets } from '../../contextAPI/ProviderSocket';
+import { Providers } from '../../contextAPI/Provider';
+import RightSide from '../../RightSide/RightSide';
 
 const About = () => {
   const { socket } = useContext(ProviderSockets);
@@ -17,8 +17,7 @@ const About = () => {
     });
   }, [socket])
   return (
-    <div>
-      <Header />
+    <div className='About'>
       <div className='contentAbout'>
         <input type="text" name='content'
           onChange={(e) =>
@@ -27,6 +26,9 @@ const About = () => {
               content: e.target.value
             })} />
         <button onClick={Click}>click</button>
+      </div>
+      <div className='db-RightSide'>
+        <RightSide />
       </div>
     </div>
   )

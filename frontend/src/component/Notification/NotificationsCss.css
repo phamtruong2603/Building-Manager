@@ -1,4 +1,47 @@
-.Notification {
-    height: 82vh;
-    padding: 5vh 5vh 0 7vh;
+.Noti {
+    display: flex;
+    justify-content: space-around;
+}
+
+.NotificationList {
+    display: flex;
+    margin: 0.5rem 0;
+}
+
+.nt-avatar {
+    width: 50px;
+    height: 50px;
+    overflow: hidden;
+    border-radius: 50%;
+}
+
+.nt-avatar img {
+    width: 100%;
+    height: 100%;
+}
+
+.nt-content {
+    margin: 0.8rem;
+}
+
+.NotificationList:hover {
+    background-color: var(--notification);
+}
+
+.NotificationList span {
+    color: rgb(108, 128, 245);
+    font-weight: 500;
+    cursor: pointer;
+}
+
+.seen {
+    background-color: var(--notification);
+}
+
+.nt-button {
+    background-color: var(--button);
+    width: 100%;
+    font-size: 1rem;
+    padding: 0.5rem 0;
+    cursor: pointer;
 }

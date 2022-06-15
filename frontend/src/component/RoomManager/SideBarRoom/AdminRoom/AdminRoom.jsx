@@ -31,9 +31,9 @@ const AdminRoom = () => {
           return (
             <div key={index} className="listRoom">
               < li onClick={() => checkID(list.roomID)}>
-                {list.roomName}
+                {`Phòng ${list.roomName}`}
               </li>
-              <button onClick={() => deleteRoom(list.roomID)}>delete</button>
+              <button className='button AR-bt' onClick={() => deleteRoom(list.roomID)}>delete</button>
             </div>)
         })}
       </ul>

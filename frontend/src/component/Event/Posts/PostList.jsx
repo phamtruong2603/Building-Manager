@@ -17,24 +17,7 @@ const PostList = ({ props }) => {
         ? props.user.avatar
         : 'https://thuvienplus.com/themes/cynoebook/public/images/default-user-image.png'
 
-    //like hoặc unlike bài post
-    const likeCLick = async (postID) => {
-
-        socket.emit('notificationClientPush', {
-            content: `${user.data.fullName} đã like`,
-            postID,
-            userID: props.user.userID
-        })
-        // await Like({
-        //     postID,
-        // });
-
-        //lấy lại số like sau khi like hoặc unlike
-        let like = await getLike(postID)
-        setLikes(like)
-    }
-
-    const hidenComment = () => {
+    const hiddenComment = () => {
         setComment(!comment)
     }
 
@@ -44,10 +27,31 @@ const PostList = ({ props }) => {
             setLikes(await getLike(props.postID))
         })()
     }, [props.postID])
+
     const checkLike = likes && likes.find((like) => {
         const checked = like.user.userID
         return user?.data?.userID === checked
     })
+
+    //like hoặc unlike bài post
+    const likeCLick = async (postID) => {
+
+        if (!checkLike) {
+            socket.emit('notificationClientPush', {
+                interactive: `like`,
+                interactiveUser: user.data.userID,
+                postID,
+                userID: props.user.userID
+            })
+        }
+        await Like({
+            postID,
+        });
+
+        //lấy lại số like sau khi like hoặc unlike
+        let like = await getLike(postID)
+        setLikes(like)
+    }
     return (
         <div className='post'>
             <div className='postUser'>
@@ -69,9 +73,9 @@ const PostList = ({ props }) => {
                 <div className={checkLike ? 'checkLike' : ''} onClick={() => likeCLick(props.postID)}>
                     <AiOutlineLike />{likes.length}
                 </div>
-                <div onClick={() => hidenComment()}><AiOutlineComment />Comment</div>
+                <div onClick={() => hiddenComment()}><AiOutlineComment />Comment</div>
             </div>
-            <div className={!comment ? 'hiden' : ''}>
+            <div className={!comment ? 'hidden' : ''}>
                 <CommentPost
                     postID={props.postID}
                     userID={props.user.userID}

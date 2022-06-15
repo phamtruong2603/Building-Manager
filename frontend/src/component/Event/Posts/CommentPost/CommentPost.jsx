@@ -4,13 +4,13 @@ import { createComment } from '../../../auth/likeAndComment';
 import { Providers } from '../../../contextAPI/Provider';
 import { getComment } from '../../../auth/likeAndComment';
 import { postingTime } from '../../../auth/post';
-import { postNoti } from '../../../auth/notification';
+import { socket } from '../../../contextAPI/ProviderSocket';
 
 const CommentPost = (props) => {
     const [newComment, setNewComment] = useState({ postID: props.postID })
     const [comment, setComment] = useState([])
     const { user } = useContext(Providers)
-    
+
     // lấy toàn bộ comment của bài post
     useEffect(() => {
         (async function () {
@@ -40,8 +40,9 @@ const CommentPost = (props) => {
         ...comment
         ])
         createComment(newComment)
-        postNoti({
-            content: `${user.data.fullName} đã comment`,
+        socket.emit('notificationClientPush', {
+            interactive: `comment`,
+            interactiveUser: user.data.userID,
             postID: props.postID,
             userID: props.userID
         })
@@ -57,9 +58,9 @@ const CommentPost = (props) => {
             <div>
                 {comment.map((list, index) => {
                     let avatar = list.user.avatar
-                    ? list.user.avatar
-                    : 'https://thuvienplus.com/themes/cynoebook/public/images/default-user-image.png'
-            
+                        ? list.user.avatar
+                        : 'https://thuvienplus.com/themes/cynoebook/public/images/default-user-image.png'
+
                     let day = postingTime(new Date(list.createAt));
                     return (
                         <div key={index}>

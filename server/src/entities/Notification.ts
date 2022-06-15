@@ -13,7 +13,10 @@ export class Notification {
         seen : boolean;
     
     @Column()
-        content! : string;
+        interactive! : string;
+
+    @Column()
+        interactiveUser! : number;
 
     @CreateDateColumn()
         createAt!: Date;

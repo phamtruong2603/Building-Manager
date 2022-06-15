@@ -71,3 +71,7 @@
 .checkLike {
     background-color: var(--button);
 }
+
+.hidden {
+    display: none;
+}
