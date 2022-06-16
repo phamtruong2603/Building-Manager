@@ -3,8 +3,14 @@
     justify-content: space-around;
 }
 
+.Notification {
+    width: 100%;
+}
+
 .NotificationList {
     display: flex;
+    padding: 0.2rem;
+    border-radius: 8px;
     margin: 0.5rem 0;
 }
 

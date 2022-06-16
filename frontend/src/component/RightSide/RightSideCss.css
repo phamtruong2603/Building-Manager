@@ -25,9 +25,16 @@
     height: 13px;
     border-radius: 50%;
     display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 13px;
     position: absolute;
     top: 0px;
     right: 0px;
+}
+
+.hiddenNt-count {
+    display: none;
 }
 
 .showNoti,
@@ -39,7 +46,7 @@
     border-radius: 15px;
 }
 
-.showNoti::before {
+.showNoti::after {
     content: '';
     width: 20px;
     height: 20px;

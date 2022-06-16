@@ -6,12 +6,13 @@ export const socket = io.connect('http://localhost:2603')
 
 export const ProviderSockets = React.createContext();
 const ProviderSocket = ({ children }) => {
-    const [socketNoti, setSocketNoti] = useState({})
+    const [socketNoti, setSocketNoti] = useState();
 
     useEffect(() => {
         socket.on('notificationServerPush', (data) => {
             setSocketNoti(data)
             postNoti(data)
+            
         })
     }, [])
     const data = { socket, socketNoti }

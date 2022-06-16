@@ -14,7 +14,7 @@ const notificationController = {
 
             if (post && user) {
                 const noti = await getRepository(Notification).findOne({
-                    select : ['notificationID'],
+                    select: ['notificationID'],
                     where: {
                         user: user,
                         post: post,
@@ -22,29 +22,29 @@ const notificationController = {
                         interactiveUser: interactiveUser
                     }
                 });
-                if (noti) {
+                if (noti && interactive == 'like') {
                     await getRepository(Notification).delete({ notificationID: +noti.notificationID });
-                } else {
-                    const newNoti = new Notification();
-                    newNoti.interactive = interactive;
-                    newNoti.interactiveUser = interactiveUser;
-                    newNoti.post = post;
-                    newNoti.user = user;
+                }
+                const newNoti = new Notification();
+                newNoti.interactive = interactive;
+                newNoti.interactiveUser = interactiveUser;
+                newNoti.post = post;
+                newNoti.user = user;
 
-                    const addNoti = await getRepository(Notification).create(newNoti);
-                    const newNotiDB = await getRepository(Notification).save(addNoti);
+                const addNoti = await getRepository(Notification).create(newNoti);
+                const newNotiDB = await getRepository(Notification).save(addNoti);
 
-                    if (!newNotiDB) {
-                        return res.status(400).json({
-                            success: false,
-                            message: 'Notification Fail !!!'
-                        });
-                    }
-                    return res.status(200).json({
-                        success: true,
-                        data: newNotiDB
+                if (!newNotiDB) {
+                    return res.status(400).json({
+                        success: false,
+                        message: 'Notification Fail !!!'
                     });
                 }
+                return res.status(200).json({
+                    success: true,
+                    data: newNotiDB
+                });
+
             }
         } catch (error) {
             console.log(error);
