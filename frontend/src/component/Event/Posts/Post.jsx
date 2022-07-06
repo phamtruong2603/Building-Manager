@@ -34,7 +34,7 @@ const Post = () => {
                     </div>
                 )
             })}
-            <div onClick={view}>
+            <div className='button viewPost' onClick={view}>
                 view
             </div>
         </div>

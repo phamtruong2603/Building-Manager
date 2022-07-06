@@ -5,6 +5,7 @@ import { ResponseType } from '../types/ResponseType';
 import { RequestType } from '../types/RequestType';
 import { Post } from '../entities/Post';
 import { Comment } from '../entities/Comment';
+import { Notification } from '../entities/Notification';
 
 const postController = {
     //create Post
@@ -80,6 +81,7 @@ const postController = {
             if (post && post.user.userID === req.userID) {
                 await getRepository(Like).delete({ post: post });
                 await getRepository(Comment).delete({ post: post });
+                await getRepository(Notification).delete({ post: post });
                 const deletepost = await getRepository(Post).delete({ postID: +req.params.postID });
                 if (deletepost) {
                     return res.status(200).json({

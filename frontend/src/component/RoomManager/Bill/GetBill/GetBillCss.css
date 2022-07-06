@@ -1,12 +1,43 @@
+.gb-header {
+    margin: 2% auto;
+    width: 80%;
+    display: flex;
+    justify-content: space-between;
+}
+.gb-history {
+    display: flex;
+    width: 23%;
+    justify-content: space-between;
+}
+
+.gb-button {
+    padding: 0.5rem;
+    background-color: var(--button);
+    cursor: pointer;
+}
+
 .GetBill table {
     margin: 2% auto;
     text-align: center;
     width: 80%;
 }
+
+.gb-header h3 {
+    margin: 0;
+}
+
 .GetBill tr {
     background-color: var(--background);
     height: 50px;
 }
-.GetBill tr th,td {
+
+.GetBill tr th,
+td {
     width: 20%;
+}
+
+.gb-check button {
+    margin: 2% 10%;
+    padding: 0.5rem;
+    background-color: var(--button);
 }

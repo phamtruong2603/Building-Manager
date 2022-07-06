@@ -28,7 +28,10 @@ export const createPost = async (req) => {
     if (token) {
         axios.defaults.headers.common['authorization'] = `bearer ${token}`;
         try {
-            await axios.post('/post/createPost', req);
+            let data = await axios.post('/post/createPost', req);
+            if(data) {
+                return data.data
+            }
         } catch (error) {
             console.log(error)
         }

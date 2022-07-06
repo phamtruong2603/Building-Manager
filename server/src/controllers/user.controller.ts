@@ -6,6 +6,10 @@ import { Secret, sign } from 'jsonwebtoken';
 import { hash, verify } from 'argon2';
 import { Room } from '../entities/Room';
 import { RequestType } from '../types/RequestType';
+import { Post } from '../entities/Post';
+import { Like } from '../entities/Like';
+import { Comment } from '../entities/Comment';
+import { Notification } from '../entities/Notification';
 
 const userController = {
     //POST: .../login
@@ -13,7 +17,6 @@ const userController = {
         const { phoneNumber, password } = req.body;
         try {
             const user = await getRepository(User).findOne({
-                select: ['userID', 'isAdmin', 'fullName', 'phoneNumber', 'password'],
                 where: {
                     phoneNumber
                 },
@@ -120,7 +123,7 @@ const userController = {
                 .addSelect('DATE_FORMAT(dateOfBirth,\'%Y-%m-%d\')', 'dateOfBirth')
                 .where('user.userID = :id', { id: req.userID })
                 .getRawOne();
-                
+
             if (user) {
                 return res.status(200).json({
                     success: true,
@@ -137,10 +140,12 @@ const userController = {
     },
     //PUT .../updateUser
     updateDetailUser: async (req: RequestType, res: ResponseType<User>) => {
-        const avatar = req.protocol + '://' + req.get('host')+ '/' + req.file?.path;
         try {
             const user = await getRepository(User).findOne({ userID: req.userID });
             if (user) {
+                const avatar = req.file?.path ?
+                    req.protocol + '://' + req.get('host') + '/' + req.file?.path
+                    : user.avatar;
                 const detailUser: User = { ...user, ...req.body, avatar };
                 const newUser = await getRepository(User).save(detailUser);
                 if (newUser) {
@@ -218,7 +223,12 @@ const userController = {
     //delete User
     deleteUser: async (req: RequestType, res: ResponseType<User>) => {
         const userID = +req.params.userID;
+        const ur = await getRepository(User).findOne(userID);
         try {
+            await getRepository(Post).delete({ user: ur });
+            await getRepository(Like).delete({ user: ur });
+            await getRepository(Comment).delete({ user: ur });
+            await getRepository(Notification).delete({ user: ur });
             const user = getRepository(User).delete(userID);
             if (!user) {
                 return res.status(400).json({

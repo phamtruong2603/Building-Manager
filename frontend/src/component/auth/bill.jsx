@@ -31,3 +31,19 @@ export const getBill = async (roomID, req) => {
         }
     }
 }
+
+//update
+export const updateBillID = async (billID, req) => {
+    const token = localStorage.getItem('token');
+    if (token) {
+        axios.defaults.headers.common['authorization'] = `bearer ${token}`;
+        try {
+            let data = await axios.put(`/bill/${billID}`, req)
+            if (data) {
+                console.log(data)
+            }
+        } catch (error) {
+            console.log(error)
+        }
+    }
+}

@@ -28,7 +28,9 @@ const Sidebar = () => {
     useEffect(() => {
         setData(user.data)
     }, [user])
-
+    let avatar = data?.avatar
+        ? data.avatar
+        : 'https://thuvienplus.com/themes/cynoebook/public/images/default-user-image.png'
     return (
         <div className='SidebarHome'>
             <div className='Profile'>
@@ -37,9 +39,7 @@ const Sidebar = () => {
                 </div>
                 <div className='ProfileAvatar'>
                     <img
-                        src={data?.avatar
-                            ? data.avatar
-                            : 'https://thuvienplus.com/themes/cynoebook/public/images/default-user-image.png'}
+                        src={avatar}
                         alt=""
                     />
                 </div>

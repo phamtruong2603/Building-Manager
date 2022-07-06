@@ -8,6 +8,7 @@ const billRoute = express.Router();
 
 billRoute.use(authVerifyToken);
 billRoute.post('/:roomID', roomRole, billController.getBillDetail);
+billRoute.put('/:billID', billController.updateBill);
 
 billRoute.use(authRole('admin'));
 billRoute.post('/createBill/:roomID', billController.createBill);

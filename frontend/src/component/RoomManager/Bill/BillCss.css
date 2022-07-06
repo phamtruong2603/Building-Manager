@@ -1,9 +1,11 @@
 .Bill {
     padding-top: 4%;
 }
-.Bill button {
+
+.billAdmin>button {
     margin-left: 10%;
 }
+
 .hidenGetBill {
     display: none;
 }

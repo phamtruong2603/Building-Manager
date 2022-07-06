@@ -15,7 +15,6 @@ const CreatePost = () => {
     const [file, setFile] = useState()
     const { posts, setPosts } = useContext(ProviderPosts)
     const { user } = useContext(Providers)
-    const phoneNumber = user?.data?.phoneNumber
     // biến avatar người dùng
     let avatar = user?.data?.avatar
         ? user.data.avatar
@@ -42,22 +41,14 @@ const CreatePost = () => {
     }
 
     // sự kiện tạo mới bài post
-    const submit = (e) => {
+    const submit = async(e) => {
         e.preventDefault();
         const formData = new FormData();
         formData.append('content', post.content)
         formData.append('postImg', file)
-        createPost(formData);
+        let data = await createPost(formData);
         setPosts([
-            {
-                content: post.content,
-                createAt: Date(),
-                postID: null,
-                likes: [],
-                user: { phoneNumber },
-                title: post.content,
-                updateAt: ''
-            },
+            data.data,
             ...posts
         ])
         setPost({})

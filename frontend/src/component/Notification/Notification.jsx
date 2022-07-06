@@ -32,7 +32,7 @@ const Notification = () => {
     })()
   }, [])
   let newNoti = noti.slice(0, 5)
-  console.log(newNoti)
+  
   const notification = () => {
     navigate('/Notification')
   }

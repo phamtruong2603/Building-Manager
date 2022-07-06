@@ -4,8 +4,10 @@ import { MdOutlineArrowForwardIos } from "react-icons/md";
 import { socket } from '../contextAPI/ProviderSocket';
 import { useNavigate } from 'react-router-dom';
 import { Providers } from '../contextAPI/Provider';
+import { ProviderSwitchModes } from '../contextAPI/ProviderSwitchMode';
 
 const Setting = () => {
+  const { them, setThem } = useContext(ProviderSwitchModes)
   const { user, dispatch } = useContext(Providers);
   const roomID = user?.data?.room?.roomID
   const navigate = useNavigate();
@@ -27,6 +29,9 @@ const Setting = () => {
       navigate(`/Room/${roomID}`)
 
   }
+  const switchMode = () => {
+    setThem(them === 'dark' ? 'light' : 'dark')
+  }
   return (
     <div className='setting'>
       <div></div>
@@ -35,7 +40,7 @@ const Setting = () => {
           <span>Thông tin phòng</span>
           <span><MdOutlineArrowForwardIos /></span>
         </li>
-        <li>
+        <li onClick={switchMode}>
           <span>Màn hình</span>
           <span><MdOutlineArrowForwardIos /></span>
         </li>
@@ -47,8 +52,8 @@ const Setting = () => {
           <span>Trợ giúp & hỗ trợ</span>
           <span><MdOutlineArrowForwardIos /></span>
         </li>
-        <li>
-          <span onClick={LogOut}>LogOut</span>
+        <li onClick={LogOut}>
+          <span>LogOut</span>
         </li>
       </ul>
     </div>

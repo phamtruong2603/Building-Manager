@@ -75,3 +75,10 @@
 .hidden {
     display: none;
 }
+
+.viewPost{
+    background-color: var(--button);
+    padding: 0.5rem 0;
+    margin-bottom: 1rem;
+    cursor: pointer;
+}

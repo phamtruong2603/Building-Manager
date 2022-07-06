@@ -3,9 +3,9 @@ POST http://localhost:2603/register
 Content-Type: application/json
 
 {
-    "phoneNumber": "1234567897",
-    "password": "thaithuytb",
-    "roomID": 4,
+    "phoneNumber": "1",
+    "password": "1",
+    "roomID": 1,
     "isAdmin": false
 }
 
@@ -20,7 +20,7 @@ Content-Type: application/json
 
 ###
 GET http://localhost:2603/allUser
-Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTIsImlhdCI6MTY0ODQ1MTkwNSwiZXhwIjoxNjQ4NDY5OTA1fQ.qTvunwxe2wfo6NSpCRg3TwLlUz73T7Dii-zFft6iTvI
+Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MywiaWF0IjoxNjU1ODk5Mzg0LCJleHAiOjE2NTU5MTczODR9.XQzSR7as7WvGkG41WP1W5CKPPhLkcl6ppICoiDQp27o
 
 ###
 POST http://localhost:2603/updateUser
@@ -57,8 +57,8 @@ GET http://localhost:2603/detailUser
 Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6OCwiaWF0IjoxNjU0OTI5MDc3LCJleHAiOjE2NTQ5NDcwNzd9.-0lu7iMpSEn2oacFfE1yoyX_kWWFlAp8hYqf90BoU3k
 
 ###
-DELETE http://localhost:2603/deleteUser/14
-Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MywiaWF0IjoxNjUyMzc2NjcwLCJleHAiOjE2NTIzOTQ2NzB9.UfQr5Mr9NtWLM1LtFruuC5PcvldGQeDotKtY1s8dfEI
+DELETE http://localhost:2603/deleteUser/17
+Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MywiaWF0IjoxNjU2NDY1OTgzLCJleHAiOjE2NTY0ODM5ODN9.wp_71KArBIS50OSpVXseAn6sUdaApDxGVYjnQeCEpkY
 Content-Type: application/json
 
 ###
@@ -118,6 +118,15 @@ Content-Type: application/json
     "waterBlockNumber": 80,
     "paid": false,
     "sent": false
+}
+
+###
+PUT http://localhost:2603/bill//1
+Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MywiaWF0IjoxNjU1ODc2NDkwLCJleHAiOjE2NTU4OTQ0OTB9.Je75Kdo9YiLszqmy6HQPK_HDOkFsiugWebSJM3Hqehg
+Content-Type: application/json
+
+{
+    "sent": true
 }
 
 ###

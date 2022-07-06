@@ -1,9 +1,16 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import './CreateBillCss.css';
 import { useParams } from 'react-router-dom'
 import { CreateBillID } from '../../../auth/bill';
 
 const CreateBill = () => {
+  const [req, setReq] = useState({})
+  useEffect(() => {
+    setReq({
+      year: (new Date()).getFullYear(),
+      month: (new Date()).getMonth() + 1
+    })
+  }, [])
   const { roomID } = useParams()
 
   const [data, setData] = useState({
@@ -24,7 +31,6 @@ const CreateBill = () => {
   //tạo bill tháng mới. admin có quyền
   const update = async () => {
     let create = await CreateBillID(roomID, data)
-    console.log(1)
     if (!create.success) {
       alert(create.message)
     } else {
@@ -37,7 +43,7 @@ const CreateBill = () => {
   }
   return (
     <div className='CreateBill'>
-      <h4>Thu tiền nhà tháng XX phòng xx</h4>
+      <h4>Thu tiền nhà tháng {req.month}/{req.year} phòng {roomID}</h4>
       <table>
         <thead>
           <tr>
@@ -86,7 +92,6 @@ const CreateBill = () => {
       <div className='btCreateBill'>
         <ul>
           <li onClick={update}>Update</li>
-          <li>Gửi</li>
         </ul>
       </div>
     </div>

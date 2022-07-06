@@ -27,7 +27,7 @@ const billController = {
         try {
             const currentBill = await getRepository(Bill).findOne({
                 where: {
-                    room : room,
+                    room: room,
                     createAt: Like(`${currentDate}%`),
                 },
             });
@@ -121,6 +121,32 @@ const billController = {
             });
 
 
+        } catch (error) {
+            console.log(error);
+        }
+    },
+    updateBill: async (req: RequestType, res: ResponseType<Bill>) => {
+        try {
+            const bill = await getRepository(Bill).findOne({
+                where: {
+                    billID: +req.params.billID
+                },
+            });
+            if (bill) {
+                const detailBill: Bill = { ...bill, ...req.body };
+                const newBillDB = await getRepository(Bill).save(detailBill);
+                if (newBillDB) {
+                    return res.status(200).json({
+                        success: true,
+                        message: 'update successful',
+                        data: newBillDB
+                    });
+                }
+            }
+            return res.status(400).json({
+                success: true,
+                message: 'update fail!!!',
+            });
         } catch (error) {
             console.log(error);
         }

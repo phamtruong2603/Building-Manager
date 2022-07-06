@@ -7,8 +7,6 @@ const Provider = ({ children }) => {
 
   const [user, dispatch] = useReducer(authReducer, {})
   const [dataUser, setDataUser] = useState({})
-
-
   useEffect(() => {
     (async function () {
       let response = await getUser()
@@ -21,6 +19,11 @@ const Provider = ({ children }) => {
       }
     })()
   }, [])
+  useEffect(() => {
+    (async function () {
+      setDataUser(await getDetailUser())
+    })()
+  }, [user])
 
   const data = { user, dispatch, dataUser }
   return (
@@ -30,4 +33,4 @@ const Provider = ({ children }) => {
   )
 }
 
-export default Provider
+export default Provider;
