@@ -221,10 +221,25 @@ Content-Type: application/json
 
 ###
 GET http://localhost:2603/chat/conversation/getAll
-Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MywiaWF0IjoxNjU4NTU4MzA2LCJleHAiOjE2NTg1NzYzMDZ9.K8_RV2-PEsRh-UGLwO6bCt1zwaHdkPw6Id20VwuRIOw
+Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MywiaWF0IjoxNjU4NTY5MzQ1LCJleHAiOjE2NTg1ODczNDV9.YgHSeN23mjUn4kOLV752vv3AN0K37mrkZAvKxehzof8
 Content-Type: application/json
 
 ###
 PUT http://localhost:2603/chat/conversation/update
 Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MywiaWF0IjoxNjU4MzE2NjMxLCJleHAiOjE2NTgzMzQ2MzF9.0ZQiXJD1Z0Bm9L67YmQuzw8IdJ2ihCzQ9O9WW5MCoxQ
+Content-Type: application/json
+
+###
+POST http://localhost:2603/chat/message/Create
+Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MywiaWF0IjoxNjU4NTY5MzQ1LCJleHAiOjE2NTg1ODczNDV9.YgHSeN23mjUn4kOLV752vv3AN0K37mrkZAvKxehzof8
+Content-Type: application/json
+
+{
+    "message": "anh",
+    "conversationID": 3
+}
+
+###
+GET http://localhost:2603/chat/message/getAll/3
+Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MywiaWF0IjoxNjU4NTY5MzQ1LCJleHAiOjE2NTg1ODczNDV9.YgHSeN23mjUn4kOLV752vv3AN0K37mrkZAvKxehzof8
 Content-Type: application/json

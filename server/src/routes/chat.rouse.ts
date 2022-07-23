@@ -10,8 +10,7 @@ chatRoute.use(authVerifyToken);
 chatRoute.post('/conversation/Create', roomRole, conversationController.createConversation);
 chatRoute.get('/conversation/getAll', roomRole, conversationController.getConversation);
 chatRoute.put('/conversation/update', roomRole, conversationController.putConversation);
-
 chatRoute.post('/message/Create', roomRole, messageController.createMessage);
-chatRoute.get('/message/getAll', roomRole, messageController.getMessage);
+chatRoute.get('/message/getAll/:conversationID', roomRole, messageController.getMessage);
 
 export default chatRoute;

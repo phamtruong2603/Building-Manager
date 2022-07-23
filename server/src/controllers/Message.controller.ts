@@ -19,7 +19,7 @@ const messageController = {
                 const addMessage = await getRepository(Message).create(newMessage);
                 const newMessageDB = await getRepository(Message).save(addMessage);
                 if (newMessageDB) {
-                    return res.status(400).json({
+                    return res.status(200).json({
                         success: true,
                         data: newMessageDB
                     });
@@ -35,13 +35,12 @@ const messageController = {
     },
     //get message by conversation
     getMessage: async (req: RequestType, res: ResponseType<Message>) => {
-        const { conversationID } = req.body;
+        const { conversationID } = req.params;
         try {
-            const conversation = await getRepository(Conversation).findOne(conversationID);
             const mess = await getRepository(Message).find({
                 select: ['messageID', 'message'],
                 where: {
-                    conversation
+                    conversation: {conversationID}
                 },
                 relations: ['users']
             });

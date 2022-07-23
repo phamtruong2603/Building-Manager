@@ -30,20 +30,19 @@ const conversationController = {
     },
     //get all user in conversation
     getConversation: async (req: RequestType, res: ResponseType<User | Conversation>) => {
+        const user = await getRepository(User).findOne(req.userID);
         try {
-            const conversation = await getRepository(Conversation).find({
-                relations:['users'],
-                where: {
-                    users: {userID: req.userID},
-                },
-            });
+            const conversation = await user?.conversations;
             if (conversation) {
                 return res.status(200).json({
                     success: true,
                     data: conversation
                 });
             }
-
+            return res.status(400).json({
+                success: false,
+                message: 'fail!!!'
+            });
         } catch (error) {
             console.log(error);
         }

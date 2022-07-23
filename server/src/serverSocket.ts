@@ -39,14 +39,12 @@ export const serverSocket = (server: any) => {
             addUser(data, socket.id);
         });
 
-        //chat realtime
+        // chat realtime
         socket.on('join_room', (data) => {
             socket.join(data);
             console.log(`User with ID: ${socket.id} joined room: ${data}`);
         });
-
         socket.on('message', (data) => {
-            console.log(data);
             io.to(data.room).emit('pushMessage', data);
         });
 
@@ -55,11 +53,10 @@ export const serverSocket = (server: any) => {
             io.to(checkUser(data.userID)?.socketID || 'nn').emit('notificationServerPush', data);
         });
 
-        //user log out and go offline
+        // user log out and go offline
         socket.on('logOut', () => {
             disConnectUser(socket.id);
         });
-
         socket.on('disconnect', () => {
             disConnectUser(socket.id);
         });
