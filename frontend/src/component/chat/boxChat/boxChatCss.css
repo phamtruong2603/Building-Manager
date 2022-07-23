@@ -1,0 +1,49 @@
+.chat-box {
+    position: fixed;
+    right: 4.5rem;
+    bottom: 0.5rem;
+    height: 58%;
+    width: 20%;
+    background-color: rgb(107, 179, 241);
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.chat-box-header {
+    height: 10%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 20px;
+}
+
+.chat-box-body {
+    height: 80%;
+    background-color: rgb(183, 214, 241);
+}
+
+.chat-input form {
+    height: 100%;
+    position: relative;
+}
+
+#chat-input {
+    border: none;
+    outline: none;
+    width: 99%;
+    height: 34px;
+    font-size: 16px;
+}
+
+.chat-submit {
+    position: absolute;
+    right: 0;
+    top: 0;
+    height: 100%;
+    padding: 0 10px;
+    background-color: rgb(211, 232, 250);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: none;
+}

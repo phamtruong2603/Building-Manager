@@ -1,4 +1,4 @@
-import React, { useContext, useEffect } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import './PostCss.css';
 import { ProviderPosts } from '../../contextAPI/ProviderPost';
 import CreatePost from '../createPost/CreatePost';
@@ -9,7 +9,7 @@ const Post = () => {
     const { posts, page, setPosts } = useContext(ProviderPosts);
 
     useEffect(() => {
-        (async function () { 
+        (async function () {
             setPosts(await getAllPost(page))
         })()
     }, [])
@@ -23,7 +23,6 @@ const Post = () => {
             ...data
         ])
     }
-    
     return (
         <div className='mainPost'>
             <CreatePost />
@@ -36,6 +35,9 @@ const Post = () => {
             })}
             <div className='button viewPost' onClick={view}>
                 view
+            </div>
+            <div>
+                
             </div>
         </div>
     )

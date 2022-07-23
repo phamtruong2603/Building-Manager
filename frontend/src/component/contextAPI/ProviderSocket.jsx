@@ -12,7 +12,6 @@ const ProviderSocket = ({ children }) => {
         socket.on('notificationServerPush', (data) => {
             setSocketNoti(data)
             postNoti(data)
-            
         })
     }, [])
     const data = { socket, socketNoti }

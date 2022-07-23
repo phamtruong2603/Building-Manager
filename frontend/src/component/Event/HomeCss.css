@@ -3,6 +3,10 @@
     justify-content: space-around;
 }
 
+.headerResponsive {
+    display: none;
+}
+
 .headerEvent {
     position: fixed;
     width: 100%;
@@ -37,4 +41,16 @@
 
 .RightSides {
     width: 25%;
+}
+
+@media all and (max-width: 1024px) {
+    .sidebarHome {
+        display: none;
+    }
+    .RightSides {
+        display: none;
+    }
+    .headerResponsive {
+        display: block;
+    }
 }

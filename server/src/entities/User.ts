@@ -1,10 +1,12 @@
-import { Column, CreateDateColumn, Entity, JoinColumn, ManyToOne, PrimaryGeneratedColumn, UpdateDateColumn, OneToMany } from 'typeorm';
+import { Column, CreateDateColumn, Entity, JoinColumn, ManyToOne, PrimaryGeneratedColumn, UpdateDateColumn, OneToMany, ManyToMany } from 'typeorm';
+import { Message } from './Message';
 import { Comment } from './Comment';
 import { Like } from './Like';
 import { Post } from './Post';
 import { Room } from './Room';
 import { UserBill } from './UserBill.';
 import { Notification } from './Notification';
+import { Conversation } from './Conversation';
 
 @Entity({name: 'users'})
 
@@ -82,5 +84,11 @@ export class User {
         userBills: UserBill[];
 
     @OneToMany(() => Notification, (notification) => notification.user)
-        notifications : Notification;
+        notifications : Notification[];
+
+    @OneToMany(() => Message, (message) => message.users)
+        messages: Message[];
+
+    @ManyToMany(() => Conversation, (conversation) => conversation.users)
+        conversations: Promise<Conversation[]>;
 }

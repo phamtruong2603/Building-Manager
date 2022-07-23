@@ -14,7 +14,6 @@ const roomController = {
                     roomID: +req.params.roomID
                 },
                 relations: ['users']
-
             });
             if (room) {
                 return res.status(200).json({

@@ -6,6 +6,7 @@ import RightSide from '../RightSide/RightSide';
 import { Providers } from '../contextAPI/Provider';
 import { socket } from '../contextAPI/ProviderSocket';
 import { useEffect } from 'react';
+import Header from './headerResponsive/Header';
 
 
 const Home = () => {
@@ -16,6 +17,9 @@ const Home = () => {
 
   return (
     <div>
+      <div className='headerResponsive'>
+        <Header />
+      </div>
       <div className='home'>
         <div className='sidebarHome'>
           <Sidebar />

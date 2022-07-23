@@ -8,6 +8,7 @@ import { Link } from 'react-router-dom';
 import Notification from '../Notification/Notification';
 import Setting from '../Setting/Setting';
 import { ProviderNotifications } from '../contextAPI/ProviderNotification';
+// import Chat from '../chat/Chat';
 
 const RightSide = () => {
     const [hidden, setHidden] = useState(false)
@@ -23,24 +24,29 @@ const RightSide = () => {
         setHidden(false)
     }
     return (
-        <div className='RightSide'>
-            <div className='rs-Icon'>
-                <span><Link to='/Home'><BiHome /></Link></span>
-                <span><Link to='/Home'><GrLanguage /></Link></span>
-                <span className='rs-notification'>
-                    <span onClick={hiddenNoti}><IoNotifications /></span>
-                    <span className={checkNewNoti > 0 ? 'nt-count' : 'hiddenNt-count'}>{checkNewNoti}</span>
-                </span>
-                <span onClick={hiddenST}><AiOutlineSetting /></span>
-            </div>
-            <div>
-                <div className={!hidden ? 'hiddenNoti' : 'showNoti'}>
-                    <Notification />
+        <div className='RightSideChat'>
+            <div className='RightSide'>
+                <div className='rs-Icon'>
+                    <span><Link to='/Home'><BiHome /></Link></span>
+                    <span><Link to='/Home'><GrLanguage /></Link></span>
+                    <span className='rs-notification'>
+                        <span onClick={hiddenNoti}><IoNotifications /></span>
+                        <span className={checkNewNoti > 0 ? 'nt-count' : 'hiddenNt-count'}>{checkNewNoti}</span>
+                    </span>
+                    <span onClick={hiddenST}><AiOutlineSetting /></span>
                 </div>
-                <div className={!hiddenSetting ? 'hiddenSeting' : 'showSetting'}>
-                    <Setting />
+                <div>
+                    <div className={!hidden ? 'hiddenNoti' : 'showNoti'}>
+                        <Notification />
+                    </div>
+                    <div className={!hiddenSetting ? 'hiddenSeting' : 'showSetting'}>
+                        <Setting />
+                    </div>
                 </div>
             </div>
+            {/* <div className='Chat'>
+                <Chat />
+            </div> */}
         </div>
     )
 }

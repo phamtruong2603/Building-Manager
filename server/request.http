@@ -50,7 +50,7 @@ Content-Type: application/json
 
 ###
 GET http://localhost:2603/user
-Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6OCwiaWF0IjoxNjU0OTI5MDc3LCJleHAiOjE2NTQ5NDcwNzd9.-0lu7iMpSEn2oacFfE1yoyX_kWWFlAp8hYqf90BoU3k
+Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MywiaWF0IjoxNjU3MDY4MjUwLCJleHAiOjE2NTcwODYyNTB9.4Ku7a9QZscl5BYFLVzLPHBCS8c9dNQunF142PAxeudQ
 
 ###
 GET http://localhost:2603/detailUser
@@ -208,4 +208,23 @@ Content-Type: application/json
 ###
 PUT http://localhost:2603/notification/10
 Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MywiaWF0IjoxNjU1MjE4OTg3LCJleHAiOjE2NTUyMzY5ODd9.PooYx5bau4dgvcVRGKLSyGJr7k_TW-7CnGGKj7gCwPc
+Content-Type: application/json
+
+###
+POST http://localhost:2603/chat/conversation/Create
+Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MywiaWF0IjoxNjU4NTUxMjIyLCJleHAiOjE2NTg1NjkyMjJ9.BTu-yi3Io5NMkvyrWR9z-80sKX9zuiV3hpiJDSojIxY
+Content-Type: application/json
+
+{
+    "userID": [3, 8, 18]
+}
+
+###
+GET http://localhost:2603/chat/conversation/getAll
+Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MywiaWF0IjoxNjU4NTU4MzA2LCJleHAiOjE2NTg1NzYzMDZ9.K8_RV2-PEsRh-UGLwO6bCt1zwaHdkPw6Id20VwuRIOw
+Content-Type: application/json
+
+###
+PUT http://localhost:2603/chat/conversation/update
+Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MywiaWF0IjoxNjU4MzE2NjMxLCJleHAiOjE2NTgzMzQ2MzF9.0ZQiXJD1Z0Bm9L67YmQuzw8IdJ2ihCzQ9O9WW5MCoxQ
 Content-Type: application/json

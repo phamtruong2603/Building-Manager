@@ -6,13 +6,15 @@ import routePost from './post.route';
 import likeRoute from './like.route';
 import commentRoute from './comment.route';
 import NotiRoute from './Notification.route';
+import chatRoute from './chat.rouse';
 
 const route = (app: Application) => {
-    app.use(function(req: Request, res: Response, next: NextFunction) {
+    app.use(function (req: Request, res: Response, next: NextFunction) {
         res.header('Access-Control-Allow-Origin', '*');
         res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept');
         next();
     });
+    app.use('/chat', chatRoute);
     app.use('/notification', NotiRoute);
     app.use('/comment', commentRoute);
     app.use('/like', likeRoute);

@@ -2,8 +2,8 @@
     display: flex;
     flex-direction: column;
     z-index: 2;
-}
 
+}
 .rs-Icon {
     display: flex;
     justify-content: space-evenly;

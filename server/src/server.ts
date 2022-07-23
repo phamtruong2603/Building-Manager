@@ -39,7 +39,6 @@ let usersOnSocket: User[] = [];
 
 const addUser = (userID: number, socketID: string) => {
     usersOnSocket = usersOnSocket.filter((ur) => {
-        // return userID && ur.userID !== userID;
         return ur.userID !== userID;
     });
 
@@ -55,21 +54,29 @@ const disConnectUser = (socketID: string) => {
 };
 
 io.on('connection', (socket) => {
-    socket.on('message', (data) => {
-        const user: User = checkUser(data.userID) || { userID: -1, socketID: '' };
-        io.to(`${user.socketID}`).emit('pushMessage', data);
-    });
 
+    //user login and go online
     socket.on('newConnectUser', (data) => {
         addUser(data, socket.id);
-        console.log(usersOnSocket);
     });
 
-    socket.on('notificationClientPush', (data) => {
+    //chat realtime
+    socket.on('join_room', (data) => {
+        socket.join(data);
+        console.log(`User with ID: ${socket.id} joined room: ${data}`);
+    });
+
+    socket.on('message', (data) => {
         console.log(data);
+        io.to(data.room).emit('pushMessage', data);
+    });
+
+    // notification
+    socket.on('notificationClientPush', (data) => {
         io.to(checkUser(data.userID)?.socketID || 'nn').emit('notificationServerPush', data);
     });
 
+    //user log out and go offline
     socket.on('logOut', () => {
         disConnectUser(socket.id);
     });
@@ -79,6 +86,6 @@ io.on('connection', (socket) => {
     });
 });
 
-const PORT = parseInt(process.env.SERVER_PORT as string) || 6969;
+const PORT = parseInt(process.env.SERVER_PORT as string) || 6868;
 
 server.listen(PORT, () => console.log(`server is runing in port ${PORT}`));

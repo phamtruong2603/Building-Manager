@@ -14,7 +14,7 @@ export const getAllPost = async (page) => {
             let data = await axios.post('/post/getAllPost', body);
             if (data) {
                 return data.data.data
-                
+
             }
         } catch (error) {
             console.log(error)
@@ -29,7 +29,7 @@ export const createPost = async (req) => {
         axios.defaults.headers.common['authorization'] = `bearer ${token}`;
         try {
             let data = await axios.post('/post/createPost', req);
-            if(data) {
+            if (data) {
                 return data.data
             }
         } catch (error) {
@@ -111,14 +111,38 @@ export const postingTime = (date) => {
     }
 
 }
-// = currentYear - date.getFullYear() < 1 ?
-//     currentMonth - date.getMonth() < 1 ?
-//         currentDay - date.getDate() < 1 ?
-//             currentHour - date.getHours() < 1 ?
-//                 currentMin - date.getMinutes() < 1 ?
-//                     `0 phút trước` :
-//                     `${currentMin - date.getMinutes()} phút trước` :
-//                 `${currentHour - date.getHours()} giờ trước` :
-//             `${currentDay - date.getDate()} ngày trước` :
-//         `${currentMonth - date.getMonth()} tháng trước` :
-//     `${currentYear - date.getFullYear()} năm trước`
+
+// export const postingDate = (date) => {
+//     let currentMin = (new Date()).getMinutes()
+//     let currentHour = (new Date()).getHours()
+//     let currentDay = (new Date()).getDate()
+//     let currentMonth = (new Date()).getMonth()
+//     let currentYear = (new Date()).getFullYear()
+//     const dates =
+//         currentYear - date.getFullYear() <= 1 ?
+//             currentYear - date.getFullYear() < 1 ?
+//                 currentMonth - date.getMonth() <= 1 ?
+//                     currentMonth - date.getMonth() < 1 ?
+//                         currentDay - date.getDate() <= 1 ?
+//                             currentDay - date.getDate() < 1 ?
+//                                 currentHour - date.getHours() <= 1 ?
+//                                     currentHour - date.getHours() < 1 ?
+//                                         currentMin - date.getMinutes() < 1 ?
+//                                             `${currentMin - date.getMinutes()} phút trước` :
+//                                             currentMin + (60 - date.getMinutes()) > 60 ?
+//                                                 `${currentHour - date.getHours()} giờ trước` :
+//                                                 `${currentMin + (60 - date.getMinutes())} phút trước` :
+//                                         `${currentHour - date.getHours()} giờ trước` :
+//                                     currentHour + (24 - date.getHours()) > 24 ?
+//                                         `${currentDay - date.getDate()} ngày trước` :
+//                                         `${currentHour + (24 - date.getHours())} giờ trước` :
+//                                 `${currentDay - date.getDate()} ngày trước` :
+//                             currentDay + (30 - date.getDate()) > 30 ?
+//                                 `${currentMonth - date.getMonth()} tháng trước` :
+//                                 `${currentDay + (30 - date.getDate())} ngày trước` :
+//                         `${currentMonth - date.getMonth()} tháng trước` :
+//                     currentMonth + (12 - date.getMonth()) > 12 ?
+//                         `${currentYear - date.getFullYear()} năm trước` :
+//                         `${currentMonth + (12 - date.getMonth())} tháng trước` :
+//                 `${currentYear - date.getFullYear()} năm trước`
+// }
