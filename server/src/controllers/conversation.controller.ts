@@ -28,7 +28,7 @@ const conversationController = {
             console.log(error);
         }
     },
-    //get all user in conversation
+    //get all conversation take user
     getConversation: async (req: RequestType, res: ResponseType<User | Conversation>) => {
         const user = await getRepository(User).findOne(req.userID);
         try {

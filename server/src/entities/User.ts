@@ -4,7 +4,6 @@ import { Comment } from './Comment';
 import { Like } from './Like';
 import { Post } from './Post';
 import { Room } from './Room';
-import { UserBill } from './UserBill.';
 import { Notification } from './Notification';
 import { Conversation } from './Conversation';
 
@@ -80,8 +79,6 @@ export class User {
     @OneToMany(() => Post, (post) => post.user)
         posts: Post[];
 
-    @OneToMany(() => UserBill, (userBill) => userBill.user)
-        userBills: UserBill[];
 
     @OneToMany(() => Notification, (notification) => notification.user)
         notifications : Notification[];
