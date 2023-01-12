@@ -140,9 +140,14 @@ Content-Type: application/json
 }
 
 ###
-GET http://localhost:2603/post/getAllPost
+POST http://localhost:2603/post/getAllPost
 Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MywiaWF0IjoxNjUyMzE2MzI3LCJleHAiOjE2NTIzMzQzMjd9.E0kNsDUnIMemPzpUEMazv4PoJMCqBUCPs2-WpxokU2Q
 Content-Type: application/json
+
+{
+    "take": 5,
+    "page": 1
+}
 
 ###
 POST http://localhost:2603/like/45
@@ -155,7 +160,7 @@ Content-Type: application/json
 
 ###
 GET http://localhost:2603/like/getLike/45
-Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MywiaWF0IjoxNjUyOTYyODU5LCJleHAiOjE2NTI5ODA4NTl9.fAs7VtpFZSTHAooKBTvmajUqrDYRiDCOjttz3oJr78M
+Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MywiaWF0IjoxNjU5NDMxNjc4LCJleHAiOjE2NTk0NDk2Nzh9.8dUWVP5L7D_DxImnRKRnMDbWDv80ztcZHUv81Lb8r8Q
 Content-Type: application/json
 
 
@@ -212,17 +217,26 @@ Content-Type: application/json
 
 ###
 POST http://localhost:2603/chat/conversation/Create
-Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MywiaWF0IjoxNjU4NTUxMjIyLCJleHAiOjE2NTg1NjkyMjJ9.BTu-yi3Io5NMkvyrWR9z-80sKX9zuiV3hpiJDSojIxY
+Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MywiaWF0IjoxNjU4NTczODIxLCJleHAiOjE2NTg1OTE4MjF9.6A_imAq9jiwlAA6p2mG-V1EBQ5GHFWeKI9X-veVCz6Q
 Content-Type: application/json
 
 {
-    "userID": [3, 8, 18]
+    "userID": [8, 18]
 }
 
 ###
 GET http://localhost:2603/chat/conversation/getAll
-Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MywiaWF0IjoxNjU4NTY5MzQ1LCJleHAiOjE2NTg1ODczNDV9.YgHSeN23mjUn4kOLV752vv3AN0K37mrkZAvKxehzof8
+Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MywiaWF0IjoxNjYxOTk3NDcyLCJleHAiOjE2NjIwMTU0NzJ9.4nRkslxopJsDRlmTZ1JGDHOLadJ9OzpN6MurQK36nzc
 Content-Type: application/json
+
+###
+POST http://localhost:2603/chat/conversation/users
+Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MywiaWF0IjoxNjYxOTk3NDcyLCJleHAiOjE2NjIwMTU0NzJ9.4nRkslxopJsDRlmTZ1JGDHOLadJ9OzpN6MurQK36nzc
+Content-Type: application/json
+
+{
+    "conversationID": 5
+}
 
 ###
 PUT http://localhost:2603/chat/conversation/update

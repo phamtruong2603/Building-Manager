@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import './ChangePass.css';
-import { ChangePassword } from '../../auth/authReducer';
+import { callApi } from '../../../API/callAPI';
 
 const ChangePass = () => {
     const [pas, setPas] = useState({})
@@ -19,8 +19,8 @@ const ChangePass = () => {
     // thay đổi mật khẩu
     const submit = async (e) => {
         e.preventDefault()
-        let pass = await ChangePassword(pas)
-        
+        let pass = await callApi('http://localhost:2603/changePW', 'PUT', pas)
+
         if (pass.data.success) {
             setCheck(true)
             alert('Thay đổi mật khẩu thành công!')

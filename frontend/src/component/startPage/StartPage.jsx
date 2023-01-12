@@ -13,7 +13,7 @@ const StartPage = () => {
             {/* header trang login create */}
             <div className='startPageHeader'>
                 <ul>
-                    <li className='logo'>Xuân Trường</li>
+                    <li className='logo'>ABC</li>
                     <li className='create' onClick={Click}>{!check ? 'Create Account' : 'Login'}</li>
                 </ul>
             </div>

@@ -1,17 +1,20 @@
 import React, { useContext, useState } from 'react';
 import './RightSideCss.css';
-import { BiHome } from "react-icons/bi";
-import { AiOutlineSetting } from "react-icons/ai";
-import { IoNotifications } from "react-icons/io5";
-import { GrLanguage } from "react-icons/gr";
 import { Link } from 'react-router-dom';
 import Notification from '../Notification/Notification';
 import Setting from '../Setting/Setting';
 import { ProviderNotifications } from '../contextAPI/ProviderNotification';
-// import Chat from '../chat/Chat';
+
+//bootstrap icon
+import { BiHome } from "react-icons/bi";
+import { AiOutlineSetting, AiFillWechat, AiOutlinePhone } from "react-icons/ai";
+import { BsChatDots } from "react-icons/bs";
+import { IoNotifications } from "react-icons/io5";
+import { GrLanguage } from "react-icons/gr";
 
 const RightSide = () => {
     const [hidden, setHidden] = useState(false)
+    const [check, setCheck] = useState(false)
     const [hiddenSetting, setHiddenSetting] = useState(false)
     const { checkNewNoti, setCheckNewNoti } = useContext(ProviderNotifications);
     const hiddenNoti = () => {
@@ -22,6 +25,9 @@ const RightSide = () => {
     const hiddenST = () => {
         setHiddenSetting(!hiddenSetting)
         setHidden(false)
+    }
+    const selectChat = () => {
+        setCheck(!check)
     }
     return (
         <div className='RightSideChat'>
@@ -44,9 +50,26 @@ const RightSide = () => {
                     </div>
                 </div>
             </div>
-            {/* <div className='Chat'>
-                <Chat />
-            </div> */}
+
+            <div className="sy-whatshelp">
+                <div className={!check ? 'hiddenNt-count' : "sywh-services listSelectChat"}>
+                    <div className='Link chat'>
+                        <Link to='/Chat'>
+                            <BsChatDots className='iconChat' />
+                        </Link>
+                    </div>
+                    <div className='Link call'>
+                        <Link to=''>
+                            <AiOutlinePhone className='iconChat' />
+                        </Link>
+                    </div>
+                </div>
+                <div className='Link selectChat' onClick={selectChat}>
+                    <Link to=''>
+                        <AiFillWechat className='iconChat' />
+                    </Link>
+                </div>
+            </div>
         </div>
     )
 }

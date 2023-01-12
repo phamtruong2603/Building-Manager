@@ -11,7 +11,6 @@ import { serverSocket } from './serverSocket';
 
 dotenv.config();
 connectDB();
-
 const app: Application = express();
 
 const server = http.createServer(app);

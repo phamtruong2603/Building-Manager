@@ -1,15 +1,16 @@
-import React, { useContext, useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import './CommentPostCss.css';
 import { createComment } from '../../../auth/likeAndComment';
-import { Providers } from '../../../contextAPI/Provider';
 import { getComment } from '../../../auth/likeAndComment';
 import { postingTime } from '../../../auth/post';
 import { socket } from '../../../contextAPI/ProviderSocket';
+import { useSelector } from 'react-redux';
+import { userSlector } from '../../../../redux/reducer/userReducer';
 
 const CommentPost = (props) => {
     const [newComment, setNewComment] = useState({ postID: props.postID })
     const [comment, setComment] = useState([])
-    const { user } = useContext(Providers)
+    const user = useSelector(userSlector);
 
     // lấy toàn bộ comment của bài post
     useEffect(() => {

@@ -31,7 +31,7 @@ const Notification = () => {
       setNoti(await getNoti())
     })()
   }, [])
-  let newNoti = noti.slice(0, 5)
+  // let newNoti = noti.slice(0, 5)
   
   const notification = () => {
     navigate('/Notification')
@@ -39,7 +39,7 @@ const Notification = () => {
   return (
     <div className='Noti'>
       <div className='Notification'>
-        {newNoti?.map((list, index) => {
+        {noti?.map((list, index) => {
           let seen = list.seen ? '' : 'seen'
           return (
             <div key={index} className={`NotificationList ${seen}`}>

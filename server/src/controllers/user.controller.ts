@@ -119,7 +119,7 @@ const userController = {
     getDetailUser: async (req: RequestType, res: ResponseType<User>) => {
         try {
             const user = await getRepository(User).createQueryBuilder('user')
-                .select(['userID', 'fullName', 'phoneNumber', 'sex', 'cardNumber', 'address', 'haveMotorbike', 'avatar'])
+                .select(['userID', 'fullName', 'phoneNumber', 'sex', 'cardNumber', 'address', 'isAdmin', 'haveMotorbike', 'avatar'])
                 .addSelect('DATE_FORMAT(dateOfBirth,\'%Y-%m-%d\')', 'dateOfBirth')
                 .where('user.userID = :id', { id: req.userID })
                 .getRawOne();

@@ -1,7 +1,7 @@
 .startPage {
     height: 100vh;
     position: relative;
-    background-image: url('https://ichef.bbci.co.uk/news/640/cpsprodpb/120D2/production/_102783937_img_1272.jpg');
+    /* background-image: url('https://ichef.bbci.co.uk/news/640/cpsprodpb/120D2/production/_102783937_img_1272.jpg'); */
     background-size: 100%;
     color: rgb(48, 47, 47);
 }

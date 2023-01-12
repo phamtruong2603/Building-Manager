@@ -1,14 +1,15 @@
-import React, { useContext } from 'react';
+import React from 'react';
 import './Users.css';
-import { Providers } from '../../contextAPI/Provider';
 import { useNavigate } from 'react-router-dom';
+import { useSelector } from 'react-redux';
+import { userSlector } from '../../../redux/reducer/userReducer';
 
 const User = () => {
-    const { dataUser } = useContext(Providers)
+    const user = useSelector(userSlector).data
     const navigate = useNavigate()
     // biến avatar người dùng
-    let avatar = dataUser?.avatar
-        ? dataUser.avatar
+    let avatar = user?.avatar
+        ? user.avatar
         : 'https://thuvienplus.com/themes/cynoebook/public/images/default-user-image.png'
 
     const updateUser = () => {
@@ -20,12 +21,12 @@ const User = () => {
                 <img src={avatar} alt="" />
             </div>
             <ul>
-                <li>Họ và tên : {dataUser?.fullName ? dataUser.fullName : '*'}</li>
-                <li>Ngày sinh : {dataUser?.dateOfBirth ? dataUser.dateOfBirth : '*'}</li>
-                <li>Số CMND : {dataUser?.cardNumber ? dataUser.cardNumber : '*'}</li>
-                <li>Số điện thoại : {dataUser?.phoneNumber ? dataUser.phoneNumber : '*'}</li>
-                <li>Giới tính : {dataUser?.sex ? dataUser.sex : '*'}</li>
-                <li>Xe máy : {dataUser?.haveMotorbike ? dataUser.haveMotorbike : '*'}</li>
+                <li>Họ và tên : {user?.fullName ? user.fullName : '*'}</li>
+                <li>Ngày sinh : {user?.dateOfBirth ? user.dateOfBirth : '*'}</li>
+                <li>Số CMND : {user?.cardNumber ? user.cardNumber : '*'}</li>
+                <li>Số điện thoại : {user?.phoneNumber ? user.phoneNumber : '*'}</li>
+                <li>Giới tính : {user?.sex ? user.sex : '*'}</li>
+                <li>Xe máy : {user?.haveMotorbike ? user.haveMotorbike : '*'}</li>
                 <li>
                     <button className='button user-button' onClick={updateUser}>Update</button>
                 </li>

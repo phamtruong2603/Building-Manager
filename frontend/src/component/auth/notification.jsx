@@ -5,12 +5,12 @@ export const getNoti = async () => {
     if (token) {
         axios.defaults.headers.common['authorization'] = `bearer ${token}`;
         try {
-            const data = await axios.get('/notification')
+            const data = await axios.get('/notification');
             if (data) {
-                return data.data.data
+                return data.data.data;
             }
         } catch (error) {
-            console.log(error)
+            console.log(error);
         }
     }
 }
@@ -20,9 +20,9 @@ export const postNoti = async (req) => {
     if (token) {
         axios.defaults.headers.common['authorization'] = `bearer ${token}`;
         try {
-            await axios.post('/notification', req)
+            await axios.post('/notification', req);
         } catch (error) {
-            console.log(error)
+            console.log(error);
         }
     }
 }
@@ -34,7 +34,7 @@ export const seenNoti = async (id) => {
         try {
             await axios.put(`/notification/${id}`);
         } catch (error) {
-            console.log(error)
+            console.log(error);
         }
     }
 }

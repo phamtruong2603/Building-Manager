@@ -4,10 +4,10 @@
   --background-comment: rgb(249, 249, 250);
   --background-header: rgb(201, 204, 206);
   --color: rgb(66, 65, 65);
-  --photo : rgb(21, 241, 21);
-  --video : rgb(84, 137, 235);
-  --location : rgb(247, 93, 93);
-  --shedule : rgb(225, 241, 0);
+  --photo: rgb(21, 241, 21);
+  --video: rgb(84, 137, 235);
+  --location: rgb(247, 93, 93);
+  --shedule: rgb(225, 241, 0);
   --button: rgb(152, 247, 247);
 }
 
@@ -16,9 +16,7 @@
   --background-color: rgb(31, 30, 30);
   --background-comment: rgb(53, 51, 51);
   --background-header: rgb(19, 18, 18);
-
   --color: white;
-
   background-color: var(--background);
   color: var(--color);
   position: relative;

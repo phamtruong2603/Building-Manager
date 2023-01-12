@@ -2,7 +2,7 @@ import axios from "axios";
 
 // get all post
 export const getAllPost = async (page) => {
-    const token = localStorage.getItem('token')
+    const token = localStorage.getItem('token');
     if (token) {
         axios.defaults.headers.common['authorization'] = `bearer ${token}`;
         try {
@@ -13,27 +13,27 @@ export const getAllPost = async (page) => {
 
             let data = await axios.post('/post/getAllPost', body);
             if (data) {
-                return data.data.data
+                return data.data.data;
 
             }
         } catch (error) {
-            console.log(error)
+            console.log(error);
         }
     }
 }
 
 // create post
 export const createPost = async (req) => {
-    const token = localStorage.getItem('token')
+    const token = localStorage.getItem('token');
     if (token) {
         axios.defaults.headers.common['authorization'] = `bearer ${token}`;
         try {
             let data = await axios.post('/post/createPost', req);
             if (data) {
-                return data.data
+                return data.data;
             }
         } catch (error) {
-            console.log(error)
+            console.log(error);
         }
     }
 }
@@ -44,9 +44,9 @@ export const deletePost = async (postID) => {
     if (token) {
         axios.defaults.headers.common['authorization'] = `bearer ${token}`;
         try {
-            await axios.delete(`/post/deletePost/${postID}`)
+            await axios.delete(`/post/deletePost/${postID}`);
         } catch (error) {
-            console.log(error)
+            console.log(error);
         }
     }
 }
@@ -68,46 +68,46 @@ export const postingTime = (date) => {
                         if (currentDay - date.getDate() < 1) {
                             if (currentHour - date.getHours() <= 1) {
                                 if (currentHour - date.getHours() < 1) {
-                                    return `${currentMin - date.getMinutes()} phút trước`
+                                    return `${currentMin - date.getMinutes()} phút trước`;
                                 } else {
                                     if (currentMin + (60 - date.getMinutes()) > 60) {
-                                        return `${currentHour - date.getHours()} giờ trước`
+                                        return `${currentHour - date.getHours()} giờ trước`;
                                     } else {
-                                        return `${currentMin + (60 - date.getMinutes())} phút trước`
+                                        return `${currentMin + (60 - date.getMinutes())} phút trước`;
                                     }
                                 }
                             } else {
-                                return `${currentHour - date.getHours()} giờ trước`
+                                return `${currentHour - date.getHours()} giờ trước`;
                             }
                         } else {
                             if (currentHour + (24 - date.getHours()) > 24) {
-                                return `${currentDay - date.getDate()} ngày trước`
+                                return `${currentDay - date.getDate()} ngày trước`;
                             } else {
-                                return `${currentHour + (24 - date.getHours())} giờ trước`
+                                return `${currentHour + (24 - date.getHours())} giờ trước`;
                             }
                         }
                     } else {
-                        return `${currentDay - date.getDate()} ngày trước`
+                        return `${currentDay - date.getDate()} ngày trước`;
                     }
                 } else {
                     if (currentDay + (30 - date.getDate()) > 30) {
-                        return `${currentMonth - date.getMonth()} tháng trước`
+                        return `${currentMonth - date.getMonth()} tháng trước`;
                     } else {
-                        return `${currentDay + (30 - date.getDate())} ngày trước`
+                        return `${currentDay + (30 - date.getDate())} ngày trước`;
                     }
                 }
             } else {
-                return `${currentMonth - date.getMonth()} tháng trước`
+                return `${currentMonth - date.getMonth()} tháng trước`;
             }
         } else {
             if (currentMonth + (12 - date.getMonth()) > 12) {
-                return `${currentYear - date.getFullYear()} năm trước`
+                return `${currentYear - date.getFullYear()} năm trước`;
             } else {
-                return `${currentMonth + (12 - date.getMonth())} tháng trước`
+                return `${currentMonth + (12 - date.getMonth())} tháng trước`;
             }
         }
     } else {
-        return `${currentYear - date.getFullYear()} năm trước`
+        return `${currentYear - date.getFullYear()} năm trước`;
     }
 
 }

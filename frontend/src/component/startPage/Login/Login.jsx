@@ -1,17 +1,16 @@
-import React, { useContext, useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import './LoginCss.css';
 import { BiLockAlt, BiUser as UserIcons } from "react-icons/bi";
 import { Link, useNavigate } from 'react-router-dom';
-import { Providers } from '../../contextAPI/Provider';
-import { loginForm } from '../../auth/authReducer';
+import { login, loginToken, userSlector } from '../../../redux/reducer/userReducer';
+import { useSelector, useDispatch } from 'react-redux';
 
 const Login = () => {
     const navigate = useNavigate();
-    const { user, dispatch } = useContext(Providers);
+    const user = useSelector(userSlector)
+    const dispatch = useDispatch()
     const [dataUser, setDataUser] = useState();
-    const [checkBad, setCheckBad] = useState(true);
 
-    // lấy dữ liệu từ form đăng nhập
     const setPrams = (e) => {
         let name = e.target.name
         let value = e.target.value
@@ -20,30 +19,18 @@ const Login = () => {
             [name]: value,
         })
     }
-
-    //trong thời gian token còn hạn. 
-    //tự động đến trang home
+    useEffect(() => {
+        dispatch(loginToken())
+    }, [])
     useEffect(() => {
         if (user?.success) {
             navigate('/Home');
         }
-    })
+    }, [user])
 
-    //sự kiện đăng nhập(login)
-    const submit = async (e) => {
+    const submit = (e) => {
         e.preventDefault()
-        let data = await loginForm(dataUser)
-
-        //check tài khoản mật khẩu
-        if (!data.data.success) {
-            setCheckBad(false)
-        } else {
-            setCheckBad(true)
-            dispatch({
-                type: 'login',
-                payload: data,
-            })
-        }
+        dispatch(login(dataUser))
     }
     return (
         <div className='login'>
@@ -61,7 +48,6 @@ const Login = () => {
                 </div>
 
                 <button className="bt_signin" type="submit">LOGIN</button>
-                <p className={!checkBad ? 'badForm' : 'badFormHiden'}>Sai tài khoản, mật khẩu</p>
 
                 <div className="forgotPass">
                     <Link to="">Forgot password?</Link>

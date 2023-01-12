@@ -1,11 +1,12 @@
-import React, { useContext, useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import './SidebarCss.css';
-import { Providers } from '../../contextAPI/Provider';
 import { getRoomDetail } from '../../auth/room';
 import { useNavigate } from 'react-router-dom';
+import { useSelector } from 'react-redux';
+import { userSlector } from '../../../redux/reducer/userReducer';
 
 const Sidebar = () => {
-    const { user } = useContext(Providers);
+    const user = useSelector(userSlector);
     const roomID = user?.data?.room?.roomID
     const [data, setData] = useState({})
     const [room, setRoom] = useState({})

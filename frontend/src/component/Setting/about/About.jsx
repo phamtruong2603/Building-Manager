@@ -77,9 +77,9 @@ const About = () => {
           </div>
         </div>
       </div>
-      <div className='db-RightSide'>
+      {/* <div className='db-RightSide'>
         <RightSide />
-      </div>
+      </div> */}
     </div>
 
   )

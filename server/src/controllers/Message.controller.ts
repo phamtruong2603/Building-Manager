@@ -38,7 +38,6 @@ const messageController = {
         const { conversationID } = req.params;
         try {
             const mess = await getRepository(Message).find({
-                select: ['messageID', 'message'],
                 where: {
                     conversation: {conversationID}
                 },

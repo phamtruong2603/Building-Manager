@@ -6,9 +6,9 @@ export const Like = async (req) => {
     if (token) {
         axios.defaults.headers.common['authorization'] = `bearer ${token}`;
         try {
-            await axios.post('/like', req)
+            await axios.post('/like', req);
         } catch (error) {
-            console.log(error)
+            console.log(error);
         }
     }
 }
@@ -19,12 +19,12 @@ export const getLike = async (req) => {
     if (token) {
         axios.defaults.headers.common['authorization'] = `bearer ${token}`;
         try {
-            let data = await axios.get(`/like/getLike/${req}`)
+            let data = await axios.get(`/like/getLike/${req}`);
             if (data) {
-                return data.data.data
+                return data.data.data;
             }
         } catch (error) {
-            console.log(error)
+            console.log(error);
         }
     }
 }
@@ -35,9 +35,9 @@ export const createComment = async (req) => {
     if (token) {
         axios.defaults.headers.common['authorization'] = `bearer ${token}`;
         try {
-             await axios.post('/comment', req)
+             await axios.post('/comment', req);
         } catch (error) {
-            console.log(error)
+            console.log(error);
         }
     }
 }
@@ -48,12 +48,12 @@ export const getComment = async (req) => {
     if (token) {
         axios.defaults.headers.common['authorization'] = `bearer ${token}`;
         try {
-            let data = await axios.get(`/comment/getComment/${req}`)
+            let data = await axios.get(`/comment/getComment/${req}`);
             if (data) {
-                return data.data.data
+                return data.data.data;
             }
         } catch (error) {
-            console.log(error)
+            console.log(error);
         }
     }
 }
@@ -64,12 +64,12 @@ export const deleteComment = async (req) => {
     if (token) {
         axios.defaults.headers.common['authorization'] = `bearer ${token}`;
         try {
-            let data = await axios.delete(`/comment/getComment/${req}`)
+            let data = await axios.delete(`/comment/getComment/${req}`);
             if (data) {
-                console.log(data)
+                console.log(data);
             }
         } catch (error) {
-            console.log(error)
+            console.log(error);
         }
     }
 }

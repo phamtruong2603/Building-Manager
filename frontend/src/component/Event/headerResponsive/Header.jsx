@@ -1,14 +1,16 @@
 import React, { useContext, useState } from 'react';
-import { BiHome } from "react-icons/bi";
-import { AiOutlineSetting } from "react-icons/ai";
-import { IoNotifications } from "react-icons/io5";
-import { GrLanguage } from "react-icons/gr";
 import { Link } from 'react-router-dom';
 import Notification from '../../Notification/Notification';
 import Setting from '../../Setting/Setting';
 import { ProviderNotifications } from '../../contextAPI/ProviderNotification';
+
+import { BiHome } from "react-icons/bi";
+import { AiOutlineSetting } from "react-icons/ai";
+import { IoNotifications } from "react-icons/io5";
+import { GrLanguage } from "react-icons/gr";
+
 const Header = () => {
-    
+
     const [hidden, setHidden] = useState(false)
     const [hiddenSetting, setHiddenSetting] = useState(false)
     const { checkNewNoti, setCheckNewNoti } = useContext(ProviderNotifications);

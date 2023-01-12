@@ -4,6 +4,7 @@
     z-index: 2;
 
 }
+
 .rs-Icon {
     display: flex;
     justify-content: space-evenly;
@@ -32,9 +33,42 @@
     top: 0px;
     right: 0px;
 }
-
+@keyframes fadeUp {
+    0%{
+        transform: translateY(50%);
+        opacity: 0;
+    }
+    100%{
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+@keyframes fadeDown {
+    0%{
+        transform: translateY(0);
+        opacity: 1;
+    }
+    100%{
+        transform: translateY(50%);
+        opacity: 0;
+    }
+}
 .hiddenNt-count {
     display: none;
+    /* opacity: 1;
+    animation: fadeDown 0.4s forwards */
+}
+.listSelectChat{
+    transform: translateY(50%);
+    opacity: 0;
+    animation: fadeUp 0.4s forwards;
+}
+.listSelectChat .Link:hover{
+    box-shadow:0 0 5px 5px rgba(114, 114, 114, 0.459);
+    transform: scale(1.05);
+}
+.listSelectChat .Link{
+    transition: .2s all ;
 }
 
 .showNoti,
@@ -71,4 +105,37 @@
 .hiddenNoti,
 .hiddenSeting {
     display: none;
+}
+
+/* /////////////////////////////////////// */
+.sy-whatshelp {
+    position: absolute;
+    bottom: 0;
+    right: 1rem;
+}
+
+.sy-whatshelp .Link {
+    cursor: pointer;
+    border-radius: 50%;
+    width: 3.5rem;
+    height: 3.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 1rem 0;
+}
+
+.selectChat,
+.chat {
+    background-color: rgb(35, 35, 245);
+}
+
+.call {
+    background-color: rgb(11, 243, 11);
+}
+
+.iconChat {
+    color: white;
+    font-weight: 900;
+    font-size: 2rem;
 }

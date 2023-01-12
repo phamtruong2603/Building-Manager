@@ -1,26 +1,27 @@
 import React, { useContext, useState } from 'react';
 import './CreatePostCss.css';
-import { createPost } from '../../auth/post';
-import { ProviderPosts } from '../../contextAPI/ProviderPost';
-import { Providers } from '../../contextAPI/Provider';
+
 import { HiOutlinePhotograph } from "react-icons/hi";
 import { MdOutlineSlowMotionVideo } from "react-icons/md";
 import { IoLocationOutline } from "react-icons/io5";
 import { CgCalendarDates } from "react-icons/cg";
 import { RiCloseFill } from "react-icons/ri";
 
+// import { createPost } from '../../auth/post';
+import { callApi } from '../../../API/callAPI';
+import { ProviderPosts } from '../../contextAPI/ProviderPost';
+import { useSelector } from 'react-redux';
+import { userSlector } from '../../../redux/reducer/userReducer';
+
 const CreatePost = () => {
     const [post, setPost] = useState({});
     const [result, setResult] = useState("");
     const [file, setFile] = useState()
     const { posts, setPosts } = useContext(ProviderPosts)
-    const { user } = useContext(Providers)
-    // biến avatar người dùng
+    const user = useSelector(userSlector);
     let avatar = user?.data?.avatar
         ? user.data.avatar
         : 'https://thuvienplus.com/themes/cynoebook/public/images/default-user-image.png'
-
-    // lấy dữ liệu từ form tạo mới bài post
     const setPrams = (e) => {
         let name = e.target.name
         let value = e.target.value
@@ -29,8 +30,6 @@ const CreatePost = () => {
             [name]: value
         })
     }
-
-    // xem ảnh trước khi post. chưa gửi lên server
     const uploader = (e) => {
         const reader = new FileReader();
         reader.onload = (e) => {
@@ -39,14 +38,13 @@ const CreatePost = () => {
         setFile(e.target.files[0])
         reader.readAsDataURL(e.target.files[0]);
     }
-
-    // sự kiện tạo mới bài post
-    const submit = async(e) => {
+    const submit = async (e) => {
         e.preventDefault();
         const formData = new FormData();
         formData.append('content', post.content)
         formData.append('postImg', file)
-        let data = await createPost(formData);
+        // let data = await createPost(formData);
+        let data = await callApi('/post/createPost', 'POST', formData)
         setPosts([
             data.data,
             ...posts
@@ -54,7 +52,6 @@ const CreatePost = () => {
         setPost({})
         setResult('')
     }
-
     return (
         <div className='formCreatePost'>
             <div className='headerCreateFormPost'>
@@ -81,7 +78,6 @@ const CreatePost = () => {
                         <label htmlFor="browseImg">
                             <HiOutlinePhotograph />Photo
                         </label>
-
                     </div>
                     <div style={{ color: "var(--video)" }}>
                         <label htmlFor="">

@@ -1,23 +1,25 @@
-import React, { useContext, useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import './ChangeInfor.css';
-import { updateDetailUser } from '../../auth/authReducer';
 import ChangePass from '../ChangePass/ChangePass';
-import { Providers } from '../../contextAPI/Provider';
+import { useDispatch, useSelector } from 'react-redux';
+import { userSlector, changeUser } from '../../../redux/reducer/userReducer';
+// import { callApiFormdata } from '../../../API/callAPI';
+import { updateDetailUser } from '../../auth/authReducer';
 
 const PersonalInformation = () => {
   const [file, setFile] = useState()
   const [updateUser, setUpdateUser] = useState({})
   const [result, setResult] = useState()
   const formData = new FormData();
-  const { dataUser } = useContext(Providers)
+  const data = useSelector(userSlector);
+  const user = data.data
+  const dispatch = useDispatch();
 
-  //lấy những dữ liệu có sẵn
   useEffect(() => {
-    setUpdateUser(dataUser)
-    setResult(dataUser.avatar);
-  }, [dataUser])
+    setUpdateUser(user)
+    setResult(user.avatar);
+  }, [user])
 
-  // lấy thông tin cần thay đổi
   const setPrams = (e) => {
     let name = e.target.name
     let value = e.target.value
@@ -26,17 +28,15 @@ const PersonalInformation = () => {
       [name]: value,
     })
   }
-  // thay đôi avatar
-  const uploader = (e) => {
+  const uploader = (event) => {
     const reader = new FileReader();
-    reader.onload = (e) => {
-      setResult(e.target.result);
+    reader.onload = (event) => {
+      setResult(event.target.result);
     };
-    setFile(e.target.files[0])
-    reader.readAsDataURL(e.target.files[0]);
+    setFile(event.target.files[0])
+    reader.readAsDataURL(event.target.files[0]);
   }
 
-  //thay đổi thông tin
   const submit = async (e) => {
     e.preventDefault()
     formData.append('avatar', file);
@@ -46,8 +46,11 @@ const PersonalInformation = () => {
     formData.append('phoneNumber', updateUser.phoneNumber);
     formData.append('sex', updateUser.sex);
     formData.append('haveMotorbike', updateUser.haveMotorbike);
-    let check = await updateDetailUser(formData)
+    // const check = await callApiFormdata('/updateUser', 'PUT', formData)
+    const check = await updateDetailUser(formData)
+    console.log(check)
     if (check.success) {
+      dispatch(changeUser(check.data))
       alert('Thay đổi thành công')
     }
   }

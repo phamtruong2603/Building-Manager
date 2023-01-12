@@ -47,6 +47,29 @@ const conversationController = {
             console.log(error);
         }
     },
+    getUser: async (req: RequestType, res: ResponseType<User | Conversation>) => {
+        const { conversationID } = req.body;
+        try {
+            const user = await getRepository(Conversation).findOne({
+                where: {
+                    conversationID
+                },
+                relations: ['users']
+            });
+            if (user) {
+                return res.status(200).json({
+                    success: true,
+                    data: user
+                });
+            }
+            return res.status(400).json({
+                success: false,
+                message: 'fail!!!'
+            });
+        } catch (error) {
+            console.log(error);
+        }
+    },
     //update name conversation
     putConversation: async (req: RequestType, res: ResponseType<Conversation>) => {
         const { conversationID } = req.body;
@@ -66,12 +89,10 @@ const conversationController = {
                     message: 'fall!!!'
                 });
             }
-
         } catch (error) {
             console.log(error);
         }
     },
-
 };
 
 export default conversationController;

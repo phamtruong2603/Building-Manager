@@ -6,12 +6,12 @@ export const CreateBillID = async (roomID, req) => {
     if (token) {
         axios.defaults.headers.common['authorization'] = `bearer ${token}`;
         try {
-            let data = await axios.post(`/bill/createBill/${roomID}`, req)
+            let data = await axios.post(`/bill/createBill/${roomID}`, req);
             if (data) {
-                return data.data
+                return data.data;
             }
         } catch (error) {
-            console.log(error)
+            console.log(error);
         }
     }
 }
@@ -22,12 +22,12 @@ export const getBill = async (roomID, req) => {
     if (token) {
         axios.defaults.headers.common['authorization'] = `bearer ${token}`;
         try {
-            let data = await axios.post(`/bill/${roomID}`, req)
+            let data = await axios.post(`/bill/${roomID}`, req);
             if (data) {
-                return data.data
+                return data.data;
             }
         } catch (error) {
-            console.log(error)
+            console.log(error);
         }
     }
 }
@@ -38,12 +38,12 @@ export const updateBillID = async (billID, req) => {
     if (token) {
         axios.defaults.headers.common['authorization'] = `bearer ${token}`;
         try {
-            let data = await axios.put(`/bill/${billID}`, req)
+            let data = await axios.put(`/bill/${billID}`, req);
             if (data) {
-                console.log(data)
+                return data.data;
             }
         } catch (error) {
-            console.log(error)
+            console.log(error);
         }
     }
 }

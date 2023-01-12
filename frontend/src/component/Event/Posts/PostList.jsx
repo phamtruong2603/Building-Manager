@@ -4,12 +4,13 @@ import CommentPost from './CommentPost/CommentPost';
 import { Like } from '../../auth/likeAndComment';
 import { postingTime } from '../../auth/post';
 import { getLike } from '../../auth/likeAndComment';
-import { Providers } from '../../contextAPI/Provider';
 import { ProviderSockets } from '../../contextAPI/ProviderSocket'
+import { useSelector } from 'react-redux';
+import { userSlector } from '../../../redux/reducer/userReducer';
 
 const PostList = ({ props }) => {
     const { socket } = useContext(ProviderSockets);
-    const { user } = useContext(Providers);
+    const user = useSelector(userSlector);
     const [comment, setComment] = useState(false)
     const [likes, setLikes] = useState([])
     let day = postingTime(new Date(props.createAt));

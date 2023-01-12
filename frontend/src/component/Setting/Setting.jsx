@@ -3,21 +3,20 @@ import './SettingCss.css';
 import { MdOutlineArrowForwardIos } from "react-icons/md";
 import { socket } from '../contextAPI/ProviderSocket';
 import { useNavigate } from 'react-router-dom';
-import { Providers } from '../contextAPI/Provider';
 import { ProviderSwitchModes } from '../contextAPI/ProviderSwitchMode';
+import { useDispatch, useSelector } from 'react-redux';
+import { userSlector, logout } from '../../redux/reducer/userReducer';
 
 const Setting = () => {
   const { them, setThem } = useContext(ProviderSwitchModes)
-  const { user, dispatch } = useContext(Providers);
+  const user = useSelector(userSlector);
+  const dispatch = useDispatch()
   const roomID = user?.data?.room?.roomID
   const navigate = useNavigate();
   const LogOut = () => {
     localStorage.removeItem('token');
     socket.emit('logOut', '')
-    dispatch({
-      type: 'login',
-      payload: {},
-    })
+    dispatch(logout([]))
     navigate('/');
   }
   const about = () => {

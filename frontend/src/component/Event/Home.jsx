@@ -1,16 +1,16 @@
-import React, { useContext } from 'react';
+import React, { useEffect } from 'react';
 import './HomeCss.css';
 import Sidebar from './Sidebar/Sidebar';
 import Post from './Posts/Post';
 import RightSide from '../RightSide/RightSide';
-import { Providers } from '../contextAPI/Provider';
 import { socket } from '../contextAPI/ProviderSocket';
-import { useEffect } from 'react';
 import Header from './headerResponsive/Header';
+import { useSelector } from 'react-redux';
+import { userSlector } from '../../redux/reducer/userReducer';
 
 
 const Home = () => {
-  const { user } = useContext(Providers);
+  const user = useSelector(userSlector)
   useEffect(() => {
     socket.emit('newConnectUser', user?.data?.userID);
   }, [user])
