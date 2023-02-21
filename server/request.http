@@ -1,29 +1,29 @@
 ###
-POST http://localhost:2603/register
+POST http://localhost:3001/register
 Content-Type: application/json
 
 {
     "phoneNumber": "1",
     "password": "1",
     "roomID": 1,
-    "isAdmin": false
+    "isAdmin": true
 }
 
 ###
-POST http://localhost:2603/login
+POST http://localhost:3001/login
 Content-Type: application/json
 
 {
-    "phoneNumber": "0852859919",
-    "password": "0852859919"
+    "phoneNumber": "1",
+    "password": "1"
 }
 
 ###
-GET http://localhost:2603/allUser
+GET http://localhost:3001/allUser
 Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MywiaWF0IjoxNjU1ODk5Mzg0LCJleHAiOjE2NTU5MTczODR9.XQzSR7as7WvGkG41WP1W5CKPPhLkcl6ppICoiDQp27o
 
 ###
-POST http://localhost:2603/updateUser
+POST http://localhost:3001/updateUser
 Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTIsImlhdCI6MTY0ODQ1MTkwNSwiZXhwIjoxNjQ4NDY5OTA1fQ.qTvunwxe2wfo6NSpCRg3TwLlUz73T7Dii-zFft6iTvI
 Content-Type: application/json
 
@@ -35,11 +35,11 @@ Content-Type: application/json
 }
 
 ###
-GET http://localhost:2603
+GET http://localhost:3001
 Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NCwiaWF0IjoxNjQ4MTEyMTE3LCJleHAiOjE2NDgxMTU3MTd9.DBr7s0gU0059hRxPa5fWQVMfuzKTDVoV4QabKiStl8M
 
 ###
-POST http://localhost:2603/changePW
+POST http://localhost:3001/changePW
 Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NCwiaWF0IjoxNjQ4MDE4NzU2LCJleHAiOjE2NDgwMjIzNTZ9.-egA1ucecENWw_cjo5ZB1SvVdQ9Zz1peBuIiED7cuKw
 Content-Type: application/json
 
@@ -49,29 +49,29 @@ Content-Type: application/json
 }
 
 ###
-GET http://localhost:2603/user
+GET http://localhost:3001/user
 Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MywiaWF0IjoxNjU3MDY4MjUwLCJleHAiOjE2NTcwODYyNTB9.4Ku7a9QZscl5BYFLVzLPHBCS8c9dNQunF142PAxeudQ
 
 ###
-GET http://localhost:2603/detailUser
+GET http://localhost:3001/detailUser
 Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6OCwiaWF0IjoxNjU0OTI5MDc3LCJleHAiOjE2NTQ5NDcwNzd9.-0lu7iMpSEn2oacFfE1yoyX_kWWFlAp8hYqf90BoU3k
 
 ###
-DELETE http://localhost:2603/deleteUser/17
+DELETE http://localhost:3001/deleteUser/17
 Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MywiaWF0IjoxNjU2NDY1OTgzLCJleHAiOjE2NTY0ODM5ODN9.wp_71KArBIS50OSpVXseAn6sUdaApDxGVYjnQeCEpkY
 Content-Type: application/json
 
 ###
-GET http://localhost:2603/room/1
+GET http://localhost:3001/room/1
 Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MywiaWF0IjoxNjUyMjkwMTU3LCJleHAiOjE2NTIzMDgxNTd9.9J4K3x1QQR7xgI-VNfRCRsylWYMZG-1hCqbgFkFeFiE
 
 ###
-GET http://localhost:2603/room
+GET http://localhost:3001/room
 Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MywiaWF0IjoxNjUxMjA1NjA1LCJleHAiOjE2NTEyMjM2MDV9.yirVpKuDENC4WkA5x_PiGFvArXxg4sejq04kNSt6qwA
 
 ###
 
-POST http://localhost:2603/room
+POST http://localhost:3001/room
 Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNjQ3ODgwNjE2LCJleHAiOjE2NDc4ODQyMTZ9.srNIGMUMQ3moziQWpZHKyMHvW4vB0bK1paAU32yUvmY
 Content-Type: application/json
 
@@ -83,7 +83,7 @@ Content-Type: application/json
 }
 
 ###
-PUT http://localhost:2603/room/3
+PUT http://localhost:3001/room/3
 Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNjQ3ODgwNjE2LCJleHAiOjE2NDc4ODQyMTZ9.srNIGMUMQ3moziQWpZHKyMHvW4vB0bK1paAU32yUvmY
 Content-Type: application/json
 
@@ -95,12 +95,12 @@ Content-Type: application/json
 }
 
 ###
-DELETE  http://localhost:2603/room/
+DELETE  http://localhost:3001/room/
 Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNjQ3ODM3Njc3LCJleHAiOjE2NDc4NDEyNzd9.mwWOvqGEwzaO7bfgnFN5ilPQpqN1u_qlk1Mq2AEEoOE
 Content-Type: application/json
 
 ###
-POST http://localhost:2603/bill/34
+POST http://localhost:3001/bill/34
 Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MywiaWF0IjoxNjUzNjQxNjYwLCJleHAiOjE2NTM2NTk2NjB9.H4VSR0S0P7fRFqlFsvbbI4BKOE50a3AFmSJY5ySy1A0
 Content-Type: application/json
 
@@ -109,7 +109,7 @@ Content-Type: application/json
     "month": 4
 }
 ###
-POST http://localhost:2603/bill/createBill/1
+POST http://localhost:3001/bill/createBill/1
 Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MywiaWF0IjoxNjUzNjc2NDgzLCJleHAiOjE2NTM2OTQ0ODN9.cTjNnegp9c40rOfvFwl-z2AhdKTLIOuzlFapph5ora0
 Content-Type: application/json
 
@@ -121,7 +121,7 @@ Content-Type: application/json
 }
 
 ###
-PUT http://localhost:2603/bill//1
+PUT http://localhost:3001/bill//1
 Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MywiaWF0IjoxNjU1ODc2NDkwLCJleHAiOjE2NTU4OTQ0OTB9.Je75Kdo9YiLszqmy6HQPK_HDOkFsiugWebSJM3Hqehg
 Content-Type: application/json
 
@@ -130,7 +130,7 @@ Content-Type: application/json
 }
 
 ###
-POST http://localhost:2603/post/createPost
+POST http://localhost:3001/post/createPost
 Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MywiaWF0IjoxNjUyMDg3ODkxLCJleHAiOjE2NTIxMDU4OTF9.o_Yfm0Jn45f3zyuoq18WCUgdopBGymea_RdG7sZP3io
 Content-Type: application/json
 
@@ -140,7 +140,7 @@ Content-Type: application/json
 }
 
 ###
-POST http://localhost:2603/post/getAllPost
+POST http://localhost:3001/post/getAllPost
 Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MywiaWF0IjoxNjUyMzE2MzI3LCJleHAiOjE2NTIzMzQzMjd9.E0kNsDUnIMemPzpUEMazv4PoJMCqBUCPs2-WpxokU2Q
 Content-Type: application/json
 
@@ -150,7 +150,7 @@ Content-Type: application/json
 }
 
 ###
-POST http://localhost:2603/like/45
+POST http://localhost:3001/like/45
 Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MywiaWF0IjoxNjUyOTYyODU5LCJleHAiOjE2NTI5ODA4NTl9.fAs7VtpFZSTHAooKBTvmajUqrDYRiDCOjttz3oJr78M
 Content-Type: application/json
 
@@ -159,18 +159,18 @@ Content-Type: application/json
 }
 
 ###
-GET http://localhost:2603/like/getLike/45
+GET http://localhost:3001/like/getLike/45
 Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MywiaWF0IjoxNjU5NDMxNjc4LCJleHAiOjE2NTk0NDk2Nzh9.8dUWVP5L7D_DxImnRKRnMDbWDv80ztcZHUv81Lb8r8Q
 Content-Type: application/json
 
 
 ###
-DELETE http://localhost:2603/post/deletePost/27
+DELETE http://localhost:3001/post/deletePost/27
 Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MywiaWF0IjoxNjUyMjYzMzgzLCJleHAiOjE2NTIyODEzODN9.OLQ5z30nCw1iCbLg9U1PfHw0VFK_O6MGn_a1jOHYPl8
 Content-Type: application/json
 
 ###
-POST http://localhost:2603/comment/
+POST http://localhost:3001/comment/
 Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MywiaWF0IjoxNjUyMzE2MzI3LCJleHAiOjE2NTIzMzQzMjd9.E0kNsDUnIMemPzpUEMazv4PoJMCqBUCPs2-WpxokU2Q
 Content-Type: application/json
 
@@ -180,18 +180,18 @@ Content-Type: application/json
 }
 
 ###
-GET http://localhost:2603/comment/getComment/44
+GET http://localhost:3001/comment/getComment/44
 Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MywiaWF0IjoxNjUyNjg1NTA1LCJleHAiOjE2NTI3MDM1MDV9.7iXZXQ7SLeAdZ81oQY8Fyg2SRM9u70U8BJ3i0m2AwQI
 Content-Type: application/json
 
 
 ###
-DELETE http://localhost:2603/comment/1
+DELETE http://localhost:3001/comment/1
 Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MywiaWF0IjoxNjUyMzE4NDM5LCJleHAiOjE2NTIzMzY0Mzl9.OvmVyD0q0mRXcuVJgj14z3Gma-4XQN7yONEOrpgwGkY
 Content-Type: application/json
 
 ###
-POST http://localhost:2603/notification/
+POST http://localhost:3001/notification/
 Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MywiaWF0IjoxNjUzOTI2MjY5LCJleHAiOjE2NTM5NDQyNjl9.1RMy6OkwaWeU-A4I7_Lfb96GVkwW7GUTcIK14x7iSms
 Content-Type: application/json
 
@@ -201,22 +201,22 @@ Content-Type: application/json
 }
 
 ###
-PUT http://localhost:2603/notification/5
+PUT http://localhost:3001/notification/5
 Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MywiaWF0IjoxNjUzOTI2MjY5LCJleHAiOjE2NTM5NDQyNjl9.1RMy6OkwaWeU-A4I7_Lfb96GVkwW7GUTcIK14x7iSms
 Content-Type: application/json
 
 ###
-GET http://localhost:2603/notification/
+GET http://localhost:3001/notification/
 Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MywiaWF0IjoxNjUzOTI2MjY5LCJleHAiOjE2NTM5NDQyNjl9.1RMy6OkwaWeU-A4I7_Lfb96GVkwW7GUTcIK14x7iSms
 Content-Type: application/json
 
 ###
-PUT http://localhost:2603/notification/10
+PUT http://localhost:3001/notification/10
 Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MywiaWF0IjoxNjU1MjE4OTg3LCJleHAiOjE2NTUyMzY5ODd9.PooYx5bau4dgvcVRGKLSyGJr7k_TW-7CnGGKj7gCwPc
 Content-Type: application/json
 
 ###
-POST http://localhost:2603/chat/conversation/Create
+POST http://localhost:3001/chat/conversation/Create
 Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MywiaWF0IjoxNjU4NTczODIxLCJleHAiOjE2NTg1OTE4MjF9.6A_imAq9jiwlAA6p2mG-V1EBQ5GHFWeKI9X-veVCz6Q
 Content-Type: application/json
 
@@ -225,12 +225,12 @@ Content-Type: application/json
 }
 
 ###
-GET http://localhost:2603/chat/conversation/getAll
+GET http://localhost:3001/chat/conversation/getAll
 Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MywiaWF0IjoxNjYxOTk3NDcyLCJleHAiOjE2NjIwMTU0NzJ9.4nRkslxopJsDRlmTZ1JGDHOLadJ9OzpN6MurQK36nzc
 Content-Type: application/json
 
 ###
-POST http://localhost:2603/chat/conversation/users
+POST http://localhost:3001/chat/conversation/users
 Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MywiaWF0IjoxNjYxOTk3NDcyLCJleHAiOjE2NjIwMTU0NzJ9.4nRkslxopJsDRlmTZ1JGDHOLadJ9OzpN6MurQK36nzc
 Content-Type: application/json
 
@@ -239,12 +239,12 @@ Content-Type: application/json
 }
 
 ###
-PUT http://localhost:2603/chat/conversation/update
+PUT http://localhost:3001/chat/conversation/update
 Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MywiaWF0IjoxNjU4MzE2NjMxLCJleHAiOjE2NTgzMzQ2MzF9.0ZQiXJD1Z0Bm9L67YmQuzw8IdJ2ihCzQ9O9WW5MCoxQ
 Content-Type: application/json
 
 ###
-POST http://localhost:2603/chat/message/Create
+POST http://localhost:3001/chat/message/Create
 Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MywiaWF0IjoxNjU4NTY5MzQ1LCJleHAiOjE2NTg1ODczNDV9.YgHSeN23mjUn4kOLV752vv3AN0K37mrkZAvKxehzof8
 Content-Type: application/json
 
@@ -254,6 +254,6 @@ Content-Type: application/json
 }
 
 ###
-GET http://localhost:2603/chat/message/getAll/3
+GET http://localhost:3001/chat/message/getAll/3
 Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MywiaWF0IjoxNjU4NTY5MzQ1LCJleHAiOjE2NTg1ODczNDV9.YgHSeN23mjUn4kOLV752vv3AN0K37mrkZAvKxehzof8
 Content-Type: application/json

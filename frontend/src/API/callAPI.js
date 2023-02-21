@@ -1,5 +1,7 @@
 import axios from "axios";
-import { API_URL } from "../config/config";
+// import { API_URL } from "../config/config";
+
+const API_URL = 'http://localhost:3001'
 
 export const callApi = async (URL, method = 'get', data) => {
     try {
@@ -13,8 +15,7 @@ export const callApi = async (URL, method = 'get', data) => {
             url: `${API_URL}/${URL}`,
             ...dataQuery,
             headers: {
-                // 'Content-Type': 'application/json'
-                "Content-Type":"",
+                'Content-Type': 'application/json',
                 "Authorization": `bearer ${token}`
             }
         });

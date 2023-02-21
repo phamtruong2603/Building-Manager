@@ -10,6 +10,7 @@ import { userSlector, logout } from '../../redux/reducer/userReducer';
 const Setting = () => {
   const { them, setThem } = useContext(ProviderSwitchModes)
   const user = useSelector(userSlector);
+  console.log(user)
   const dispatch = useDispatch()
   const roomID = user?.data?.room?.roomID
   const navigate = useNavigate();

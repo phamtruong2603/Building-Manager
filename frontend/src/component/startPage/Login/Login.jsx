@@ -29,6 +29,7 @@ const Login = () => {
     }, [user])
 
     const submit = (e) => {
+        console.log(dataUser)
         e.preventDefault()
         dispatch(login(dataUser))
     }

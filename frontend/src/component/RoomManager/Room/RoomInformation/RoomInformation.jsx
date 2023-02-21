@@ -5,10 +5,13 @@ import { getRoomDetail } from '../../../auth/room';
 import { deleteUser } from '../../../auth/authReducer';
 import { Providers } from '../../../contextAPI/Provider';
 import { numberFormat } from '../../../auth/room';
+import { useSelector } from 'react-redux';
+import { userSlector } from '../../../../redux/reducer/userReducer';
 
 const RoomInformation = () => {
     const { roomID } = useParams();
-    const { user } = useContext(Providers)
+    const data = useSelector(userSlector);
+    const user = data.data
     const [room, setRoom] = useState({})
     const [users, setUsers] = useState([])
 

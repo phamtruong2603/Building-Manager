@@ -20,7 +20,7 @@ const userController = {
                 where: {
                     phoneNumber
                 },
-                relations: ['room'],
+                relations: ['room']
             });
             if (!user) {
                 return res.json({
@@ -119,6 +119,7 @@ const userController = {
     getDetailUser: async (req: RequestType, res: ResponseType<User>) => {
         try {
             const user = await getRepository(User).createQueryBuilder('user')
+                .relation('room')
                 .select(['userID', 'fullName', 'phoneNumber', 'sex', 'cardNumber', 'address', 'isAdmin', 'haveMotorbike', 'avatar'])
                 .addSelect('DATE_FORMAT(dateOfBirth,\'%Y-%m-%d\')', 'dateOfBirth')
                 .where('user.userID = :id', { id: req.userID })

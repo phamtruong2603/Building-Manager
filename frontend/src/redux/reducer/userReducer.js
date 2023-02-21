@@ -5,6 +5,7 @@ export const login = createAsyncThunk(
     'user/getDetailUser',
     async data => {
         const response = await callApi('login', 'POST', data)
+        console.log(response)
         localStorage.setItem('token', response.token);
         return response
     }

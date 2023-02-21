@@ -19,7 +19,7 @@ const ChangePass = () => {
     // thay đổi mật khẩu
     const submit = async (e) => {
         e.preventDefault()
-        let pass = await callApi('http://localhost:2603/changePW', 'PUT', pas)
+        let pass = await callApi('http://localhost:3001/changePW', 'PUT', pas)
 
         if (pass.data.success) {
             setCheck(true)

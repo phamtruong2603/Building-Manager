@@ -62,6 +62,7 @@ export const getDetailUser = async () => {
 //change user data
 export const updateDetailUser = async (req) => {
     const token = localStorage.getItem('token');
+    console.log(req)
     if (token) {
         axios.defaults.headers.common['authorization'] = `bearer ${token}`;
         try {

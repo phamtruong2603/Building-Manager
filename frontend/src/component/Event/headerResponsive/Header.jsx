@@ -23,6 +23,7 @@ const Header = () => {
         setHiddenSetting(!hiddenSetting)
         setHidden(false)
     }
+
     return (
         <div className='RightSide'>
             <div className='rs-Icon'>

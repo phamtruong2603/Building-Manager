@@ -4,10 +4,13 @@ import CreateBill from './CreateBill/CreateBill';
 import GetBill from './GetBill/GetBill';
 import { Providers } from '../../contextAPI/Provider';
 import { useContext } from 'react';
+import { useSelector } from 'react-redux';
+import { userSlector } from '../../../redux/reducer/userReducer';
 
 const Bill = () => {
   const [check, setCheck] = useState(false)
-  const { user } = useContext(Providers)
+  const data = useSelector(userSlector);
+  const user = data.data
   const click = () => {
     setCheck(!check)
   }

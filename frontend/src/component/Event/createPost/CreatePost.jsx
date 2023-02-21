@@ -7,7 +7,7 @@ import { IoLocationOutline } from "react-icons/io5";
 import { CgCalendarDates } from "react-icons/cg";
 import { RiCloseFill } from "react-icons/ri";
 
-// import { createPost } from '../../auth/post';
+import { createPost } from '../../auth/post';
 import { callApi } from '../../../API/callAPI';
 import { ProviderPosts } from '../../contextAPI/ProviderPost';
 import { useSelector } from 'react-redux';
@@ -43,8 +43,8 @@ const CreatePost = () => {
         const formData = new FormData();
         formData.append('content', post.content)
         formData.append('postImg', file)
-        // let data = await createPost(formData);
-        let data = await callApi('/post/createPost', 'POST', formData)
+        let data = await createPost(formData);
+        // let data = await callApi('/post/createPost', 'POST', formData)
         setPosts([
             data.data,
             ...posts

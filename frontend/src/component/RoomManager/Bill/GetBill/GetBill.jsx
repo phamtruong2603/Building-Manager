@@ -6,9 +6,12 @@ import { updateBillID } from '../../../auth/bill';
 import { numberFormat } from '../../../auth/room';
 import { Providers } from '../../../contextAPI/Provider'
 import { useContext } from 'react';
+import { useSelector } from 'react-redux';
+import { userSlector } from '../../../../redux/reducer/userReducer';
 
 const GetBill = () => {
-    const { user } = useContext(Providers)
+    const data = useSelector(userSlector);
+    const user = data.data
     const [req, setReq] = useState({})
     const { roomID } = useParams();
     useEffect(() => {

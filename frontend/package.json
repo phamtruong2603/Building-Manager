@@ -50,5 +50,5 @@
   "devDependencies": {
     "cors": "^2.8.5"
   },
-  "proxy": "http://localhost:2603"
+  "proxy": "http://localhost:3001"
 }
